@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+
+html, ul {
+    font-family: 'Dosis', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Amatic SC', cursive;
+}
+
+/****************/
+/**HEADER & NAV**/
+/****************/
+
+header {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3.5em;
+    margin-bottom: 30px;
+}
+
+.main-menu ul {
+    padding: 20px;
+    list-style-type: none;
+}
+
+.main-menu img {
+    width: 35px;
+    height: 35px;
+}
+
+.main-menu .search {
+    margin-right: 20px;
+}
+
+/***********/
+/**ACCUEIL**/
+/***********/
+
+.accueil .catalogue {
+    width: 100vw;
+    height: 70vh;
+    background-image: url("../assets/images/default.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
