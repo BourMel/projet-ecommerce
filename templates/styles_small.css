@@ -1,0 +1,46 @@
+/**
+  * bootstrap breakpoints :
+  * medium devices : width 768px
+  * small devices : width 576px
+  */
+
+/******************/
+/**MEDIUM DEVICES**/
+/******************/
+
+@media screen and (max-width: 768px) {
+  
+  /***********/
+  /**ACCUEIL**/
+  /***********/
+    
+    .accueil .best .item {
+        margin: 10px;
+    }
+  
+}
+
+/*****************/
+/**SMALL DEVICES**/
+/*****************/
+
+@media screen and (max-width: 576px) {
+  
+  /***********/
+  /**ACCUEIL**/
+  /***********/
+    
+    .accueil .best {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: auto;
+    }
+    
+    .accueil .best .item img {
+        height: auto;
+        width: 100%;
+        margin-top: 40px;
+    }
+  
+}
