@@ -34,11 +34,11 @@
             
             <form id="inscription" class="collapse" method="post" action="">
                 <fieldset>
-                    <label for="mail">Adresse email</label>
-                    <input id="mail" type="text" placeholder="Adresse email">
+                    <label for="mail_insc">Adresse email</label>
+                    <input id="mail_insc" type="text" placeholder="Adresse email">
                     
-                    <label for="password">Mot de passe</label>
-                    <input id="password" type="password" placeholder="Mot de passe">
+                    <label for="password_insc">Mot de passe</label>
+                    <input id="password_insc" type="password" placeholder="Mot de passe">
                     
                     <label for="password_conf">Confirmation du mot de passe</label>
                     <input id="password_conf" type="password" placeholder="Confirmation du mot de passe">
