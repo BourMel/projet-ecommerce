@@ -16,7 +16,10 @@
         </div>
         
         <div class="col-lg-6 col-sm-12">
-            <h3>Nom d'un superbe produit</h3>
+            <h3>
+                Nom d'un superbe produit
+                <span class="category">Catégorie</span>
+            </h3>
             
             <span class="price">6,00€</span>
             
@@ -27,6 +30,8 @@
                 Sweet soufflé tootsie roll sweet biscuit sweet roll candy canes chocolate bar.
                 Lollipop dessert chocolate bar icing gummies candy canes wafer. Jelly-o cheesecake gummies lemon drops.
             </p>
+            
+            <button>Commander</button>
         </div>
         
     </div>
