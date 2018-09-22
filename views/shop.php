@@ -52,56 +52,56 @@
         </form>
         
         <div class="content d-flex justify-content-between">
-            <a href="" class="item">
+            <a href="/produit" class="item">
                 <img src="../assets/images/default2.jpg">
                 <h3>Nom d'article</h3>
                 <span class="price">6,00€</span>
             </a>
             
-            <a href="" class="item">
+            <a href="/produit" class="item">
                 <img src="../assets/images/default3.jpg">
                 <h3>Nom d'article</h3>
                 <span class="price">6,00€</span>
             </a>
             
-            <a href="" class="item">
+            <a href="/produit" class="item">
                 <img src="../assets/images/default4.jpg">
                 <h3>Nom d'article</h3>
                 <span class="price">6,00€</span>
             </a>
             
-            <a href="" class="item">
+            <a href="/produit" class="item">
                 <img src="../assets/images/default3.jpg">
                 <h3>Nom d'article</h3>
                 <span class="price">6,00€</span>
             </a>
             
-            <a href="" class="item">
+            <a href="/produit" class="item">
                 <img src="../assets/images/default4.jpg">
                 <h3>Nom d'article</h3>
                 <span class="price">6,00€</span>
             </a>
             
             
-            <a href="" class="item">
+            <a href="/produit" class="item">
                 <img src="../assets/images/default3.jpg">
                 <h3>Nom d'article</h3>
                 <span class="price">6,00€</span>
             </a>
             
-            <a href="" class="item">
+            <a href="/produit" class="item">
                 <img src="../assets/images/default4.jpg">
                 <h3>Nom d'article</h3>
                 <span class="price">6,00€</span>
             </a>
             
-            <a href="" class="item">
+            <a href="/produit" class="item">
                 <img src="../assets/images/default3.jpg">
                 <h3>Nom d'article</h3>
                 <span class="price">6,00€</span>
             </a>
             
-            <a href="" class="item">
+            <a href="/produit" class="item">
                 <img src="../assets/images/default4.jpg">
                 <h3>Nom d'article</h3>
                 <span class="price">6,00€</span>

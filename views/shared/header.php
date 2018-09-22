@@ -1,18 +1,18 @@
 <nav class="wrapper main-menu d-flex justify-content-end">
     <ul class="list-inline">
-        <li class="list-inline-item search">
-            <a href="/catalogue?search=true">
-                <img src="../assets/icons/search.svg" alt="Recherche">
+        <li class="list-inline-item catalogue">
+            <a href="/catalogue">
+                <img src="../assets/icons/list.svg" alt="Catalogue" title="Catalogue">
             </a>
         </li>
         <li class="list-inline-item">
             <a href="/panier">
-                <img src="../assets/icons/buy.svg" alt="Panier">
+                <img src="../assets/icons/buy.svg" alt="Panier" title="Panier">
             </a>
         </li>
         <li class="list-inline-item">
-            <a href="/connexion">
-                <img src="../assets/icons/account.svg" alt="Connexion et Inscription">
+            <a href="/compte">
+                <img src="../assets/icons/account.svg" alt="Compte client" title="Compte client">
             </a>
         </li>
     </ul>
