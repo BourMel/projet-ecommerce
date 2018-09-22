@@ -9,7 +9,7 @@
         <div class="box col-lg-6 col-sm-12">
             <h4>Déjà inscrit ?</h4>
             
-            <form method="post" action="">
+            <form id="connection_form" method="post" action="">
                 <label for="mail">Adresse email</label>
                 <input id="mail" type="text" placeholder="Adresse email">
                 

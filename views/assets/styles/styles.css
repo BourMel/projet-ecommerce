@@ -143,6 +143,10 @@ form input {
     width: 60%;
 }
 
+form input:focus {
+    outline: none;
+}
+
 button {
     font-variant: small-caps;
     font-family: 'Dosis', sans-serif;
@@ -154,6 +158,14 @@ button {
 
 button:hover {
     border: 2px solid #b4b4b4;
+}
+
+form .valid {
+    border-color: #339966;
+}
+
+form .invalid {
+    border-color: #BC3201;
 }
 
 /*********/
