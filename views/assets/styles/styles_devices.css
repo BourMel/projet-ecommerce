@@ -91,17 +91,28 @@
     width: 50%;
     margin-bottom: 10px;
   }
-  
-  .shop form input, .shop form label {
-    margin: inherit auto;
-  }
-  
+
   .shop form #search {
     width: 100%;
   }
   
   .shop .content .item {
     width: 100%;
+  }
+  
+  /**************/
+  /**CONNECTION**/
+  /**************/
+  
+  .connexion_page .box {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .connexion_page .box form input {
+    margin-left: auto;
+    margin-right: auto;
+    word-wrap: break-word;
   }
   
 }
