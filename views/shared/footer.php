@@ -1,6 +1,6 @@
         <footer>
             <div class="row wrapper">
-                <section class="col col-lg-6 col-sm-12">
+                <section class="col">
                     <h4>A propos</h4>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.

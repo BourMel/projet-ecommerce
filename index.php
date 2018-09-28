@@ -9,6 +9,7 @@
     // handle url redirections
     switch($_SERVER['REQUEST_URI']) {
         case "/":
+        case "/index.php":
             require $path."home.php";
             break;
         case "/catalogue":

@@ -52,7 +52,7 @@ h1 a, h1 a:hover, h1 a:focus, h1 a:visited {
 /**********/
 
 footer {
-    width: 100vw;
+    width: 100%;
     margin-top: 200px;
     padding-top: 50px;
     background-color: #c5d9d2;
@@ -87,7 +87,7 @@ footer a {
     background-color: #86a398;
     padding: 5px 0;
     color: #fff;
-    width: 100vw;
+    width: 100%;
 }
 
 /**************/
@@ -123,7 +123,7 @@ footer a {
     display: block;
     position: absolute;
     top: 80px;
-    width: 100vw;
+    width: 100%;
     height: 2px;
     background-color: #aec2bb;
 }
@@ -196,7 +196,7 @@ form .invalid {
 
 .accueil .catalogue {
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 70vh;
     background-image: url("../images/default.jpg");
     background-size: cover;

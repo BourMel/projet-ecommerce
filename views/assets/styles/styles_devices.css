@@ -26,21 +26,82 @@
 
 @media screen and (max-width: 576px) {
   
+  /**********/
+  /**FOOTER**/
+  /**********/
+  
+  footer .wrapper {
+    display: block;
+  }
+  
+  .copyright p {
+    padding: 5px;
+    text-align: center; 
+  }
+  
   /***********/
   /**ACCUEIL**/
   /***********/
+  
+  .accueil .catalogue .wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  .accueil .catalogue a {
+    width: 100%;
+  }
     
-    .accueil .best {
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: wrap;
-        margin: auto;
-    }
+  .accueil .best {
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: auto;
+  }
+  
+  .accueil .best .item {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
     
-    .accueil .best .item img {
-        height: auto;
-        width: 100%;
-        margin-top: 40px;
-    }
+  .accueil .best .item img {
+    height: auto;
+    width: 100%;
+    max-width: 60vw;
+    margin-top: 40px;
+  }
+  
+  /********/
+  /**SHOP**/
+  /********/
+  
+  .shop form {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  
+  .shop form img {
+    margin: 0;
+  }
+  
+  .shop form fieldset {
+    width: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .shop form input, .shop form label {
+    margin: inherit auto;
+  }
+  
+  .shop form #search {
+    width: 100%;
+  }
+  
+  .shop .content .item {
+    width: 100%;
+  }
   
 }
