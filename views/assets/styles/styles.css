@@ -136,6 +136,11 @@ form label {
     display: none;
 }
 
+form label.error {
+    display: inline;
+    color: #BC3201;
+}
+
 form input {
     border: 2px solid #b4b4b4;
     display: block;
