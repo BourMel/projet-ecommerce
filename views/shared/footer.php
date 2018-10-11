@@ -33,5 +33,6 @@
     
         <script src="./views/assets/javascript/utils.js"></script>
         <script src="./views/assets/javascript/form_validator.js"></script>
+        <script src="./views/assets/javascript/display_to_form.js"></script>
     </body>
 </html>

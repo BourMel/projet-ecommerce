@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     var insc_form = document.getElementById("inscription");
      
-    if(insc_form.length != 0) {
+    if(insc_form != null && insc_form.length != 0) {
         
         var password = document.getElementById("password_insc");
         
