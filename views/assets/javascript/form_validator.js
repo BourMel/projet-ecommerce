@@ -14,8 +14,6 @@ function addErrorMessage(id, msg) {
     
     // delete old error
     var $oldError = $(".error." + id);
-    console.log(".error#" + id)
-    console.log($oldError);
     
     if($oldError.length != 0) {
         $oldError.remove();
@@ -33,6 +31,35 @@ function addErrorMessage(id, msg) {
     }
 }
 
+/**
+ * Checks if all fields in the form are filled, submits it if it's okay
+ * Params :
+ * Id of the form to check
+ * Last field id (where to display the error)
+ **/
+function validateFilledForm(formId, lastFieldId) {
+    $("#"+formId).on('submit', function(e){
+            
+        is_valid = true;
+        
+        for(var i=0; i<this.length; i++) {
+            // we check that all fields (except submit button) are filled
+            if(this[i].type != "submit" && this[i].value === '') {
+                is_valid = false;
+                console.log(this[i])
+                break;
+            }
+        }
+        
+        if(is_valid) {
+            addErrorMessage(lastFieldId, "")
+        } else {
+            // error displayed after the last field
+            addErrorMessage(lastFieldId, "Tous les champs doivent être remplis")
+            e.preventDefault();
+        }
+    });
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -47,14 +74,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("mail_insc").addEventListener("keyup", function() {
             if(validateEmail(this.value)) {
                 this.className = "valid";
+                addErrorMessage("mail_insc", "");
                 
             } else {
                 this.className = "invalid";
+                addErrorMessage("mail_insc", "Votre adresse email n'est pas valide");
             }
         });
         password.addEventListener("keyup", function() {
-            var errorMsg = "";
-            
             if(this.value.length >= 8) {
                 this.className = "valid";
                 addErrorMessage("password_insc", "");
@@ -76,8 +103,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
          
          
+        /**every other field only needs to be filled**/
+
+        // coloration to help the user
+        $("#inscription .required").on("keyup", function() {
+            if(this.value.length > 0) {
+                this.className = "valid";
+            } else {
+                this.className = "invalid";
+            }
+        })
+
+        
+        // submits only if filled
+        validateFilledForm("inscription", "city");
+      
     }
- 
+    
+    
+    /**CONNECTION**/
+    
+    // only checks that the fields are filled
+    validateFilledForm("connection_form", "password");
  
 });
 

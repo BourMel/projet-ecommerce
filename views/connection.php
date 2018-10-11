@@ -41,19 +41,19 @@
                 
                 <fieldset>
                     <label for="last_name">Nom</label>
-                    <input id="last_name" type="text" placeholder="Nom">
+                    <input id="last_name" class="required" type="text" placeholder="Nom">
                     
                     <label for="first_name">Prénom</label>
-                    <input id="first_name" type="text" placeholder="Prénom">
+                    <input id="first_name" class="required" type="text" placeholder="Prénom">
                     
                     <label for="address">Adresse</label>
-                    <input id="address" type="text" placeholder="Adresse">
+                    <input id="address" class="required" type="text" placeholder="Adresse">
                     
                     <label for="cp">Code postal</label>
-                    <input id="cp" type="text" placeholder="Code postal">
+                    <input id="cp" class="required" type="text" placeholder="Code postal">
                     
                     <label for="city">Ville</label>
-                    <input id="city" type="text" placeholder="Ville">
+                    <input id="city" class="required" type="text" placeholder="Ville">
                 </fieldset>
                     
                 <button type="submit">Inscription</button>

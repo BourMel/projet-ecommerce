@@ -137,8 +137,9 @@ form label {
 }
 
 form label.error {
-    display: inline;
+    display: block;
     color: #BC3201;
+    margin-top: 10px;
 }
 
 form input {
