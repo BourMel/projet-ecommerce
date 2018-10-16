@@ -15,31 +15,26 @@ document.addEventListener('DOMContentLoaded', function() {
        // creates all inputs
        for(var i=0; i<divToChange.length; i++) {
            
-           var spanToChange = divToChange[i].getElementsByTagName("span");
+           var spanToChange = divToChange[i].querySelectorAll("span");
            
-           for(var j=0; j<spanToChange.length; j++) {
-               // we create a new input
-               var input = document.createElement("input");
+          for(var j=0; j<spanToChange.length; j++) {
+              // we create a new input
+              var input = document.createElement("input");
                
-               //which uses data-label and data-type attributes
-               input.setAttribute("placeholder", spanToChange[j].getAttribute("data-label"));
-               
+              //which uses data-label and data-type attributes
+              input.setAttribute("placeholder", spanToChange[j].getAttribute("data-label"));
+              
               if(spanToChange[j].getAttribute('data-type') == "password") {
                   input.setAttribute("type", "password");
               } else {
                   input.setAttribute("type", "text");
               }
                
-               // and we add the new item
-               divToChange[i].appendChild(input);
-           }
-           
-           
-            // removes all spans
-            for(var j=0; j<spanToChange.length; j++) {
-                console.log(spanToChange[j])
-                divToChange[i].removeChild(spanToChange[j]);
-            }
+              // and we add the new item
+              divToChange[i].appendChild(input);
+              // and remove the old one
+              divToChange[i].removeChild(spanToChange[j]);
+          }
        }
        
        
