@@ -8,7 +8,7 @@
                         Duis accumsan mauris eu erat elementum, sit amet dignissim ante elementum.
                     </p>
                 </section>
-                
+
                 <section class="col">
                     <h4>Plan du site</h4>
                     <ul>
@@ -19,20 +19,20 @@
                     </ul>
                 </section>
             </div>
-            
+
             <section class="copyright">
                 <p class="wrapper">Ephedra © 2018</p>
             </section>
         </footer>
-        
+
         <script
 			  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 			  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
 			  crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    
-        <script src="./views/assets/javascript/utils.js"></script>
-        <script src="./views/assets/javascript/form_validator.js"></script>
-        <script src="./views/assets/javascript/display_to_form.js"></script>
+
+        <script src="../assets/javascript/utils.js"></script>
+        <script src="../assets/javascript/form_validator.js"></script>
+        <script src="../assets/javascript/display_to_form.js"></script>
     </body>
 </html>
