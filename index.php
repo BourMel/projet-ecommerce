@@ -1,11 +1,11 @@
 <?php
     // all requests call this file (.htaccess rule)
 
-    $path = "./views/";
+    $path = "./controllers/";
 
-    require $path."shared/head.php";
-    require $path."shared/header.php";
-    
+    require "./views/shared/head.html";
+    require "./views/shared/header.html";
+
     // handle url redirections
     switch($_SERVER['REQUEST_URI']) {
         case "/":
@@ -28,8 +28,8 @@
             require $path."product.php";
             break;
         default:
-            require $path."404.php";
+            require "./views/404.html";
             break;
     }
-    
-    require "./views/shared/footer.php";
+
+    require "./views/shared/footer.html";
