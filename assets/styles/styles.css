@@ -204,7 +204,7 @@ form .invalid {
     position: relative;
     width: 100%;
     height: 70vh;
-    background-image: url("../images/default.jpg");
+    background-image: url("../images/cover_home.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -251,7 +251,7 @@ form .invalid {
 }
 
 .connexion_page #inscription {
-    margin-top: 10px 
+    margin-top: 10px
 }
 
 /**fix bootstrap collapse **/
