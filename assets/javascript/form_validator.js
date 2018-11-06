@@ -46,7 +46,6 @@ function validateFilledForm(formId, lastFieldId) {
             // we check that all fields (except submit button) are filled
             if(this[i].type != "submit" && this[i].value === '') {
                 is_valid = false;
-                console.log(this[i])
                 break;
             }
         }
@@ -125,6 +124,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // only checks that the fields are filled
     validateFilledForm("connection_form", "password");
+    
+    /**ACCOUNT**/
+    
+    //same
+    validateFilledForm("parent_form", "city");
  
 });
 

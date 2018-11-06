@@ -274,6 +274,39 @@ form .invalid {
     justify-content: space-between;
 }
 
+.cart h3 {
+    display: inline;
+}
+
+.cart .info .quantity {
+    color: #339966;
+}
+
+.cart .info .plus,
+.cart .info .minus  {
+    /*display: inline-block;*/
+    font-family: 'Amatic SC', cursive;
+    font-size: 2.5em;
+    position: relative;
+    margin-left: 10px;
+    line-height: 1;
+}
+
+/*circles*/
+.cart .info .plus:after,
+.cart .info .minus:after {
+    content: "";
+    display: block;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #343a40;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 12px;
+    left: -3px;
+    cursor: pointer;
+}
+
 .cart .total {
     text-align: right;
     margin-top: 20px;

@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
            
            // creates a form inside the simple parent div
            var form = document.createElement("form");
+           form.setAttribute('id', "parent_form");
            form.innerHTML = parentDiv[0].innerHTML;
            // we remove old content
            parentDiv[0].innerHTML = "";
@@ -39,6 +40,11 @@ document.addEventListener('DOMContentLoaded', function() {
                    
                   //which uses data-label and data-type attributes
                   input.setAttribute("placeholder", spanToChange[j].getAttribute("data-label"));
+                  
+                  var input_id = spanToChange[j].getAttribute("id");
+                  
+                  input.setAttribute("id", input_id);
+                  input.setAttribute("name", input_id);
                   
                   if(spanToChange[j].getAttribute('data-type') == "password") {
                       input.setAttribute("type", "password");
