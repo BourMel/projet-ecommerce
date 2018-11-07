@@ -57,6 +57,10 @@ document.addEventListener('DOMContentLoaded', function() {
                       // if it's not a password, we get the value and put it in the form
                       input.setAttribute("value", spanToChange[j].innerHTML);
                   }
+                  
+                  if(spanToChange[j].hasAttribute("data-validate")) {
+                      input.setAttribute("data-validate", spanToChange[j].getAttribute("data-validate"));
+                  }
                    
                   // and we add the new item
                   divToChange[i].appendChild(input);

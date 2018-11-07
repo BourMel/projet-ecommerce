@@ -33,19 +33,23 @@ function addErrorMessage(id, msg) {
 
 /**
  * Checks if all fields in the form are filled, submits it if it's okay
+ * If an input has a data-validate attribute set to false, it's not expected
+ * for it to be required
  * Params :
  * Id of the form to check
  * Last field id (where to display the error)
  **/
 function validateFilledForm(formId, lastFieldId) {
-    $("#"+formId).on('submit', function(e){
-        console.log("yeay");
-        e.preventDefault();
+    $("#"+formId).on('submit', function(e) {
         is_valid = true;
         
         for(var i=0; i<this.length; i++) {
-            // we check that all fields (except submit button) are filled
-            if(this[i].type != "submit" && this[i].value === '') {
+            // we check that all fields (except submit button
+            // and those which have a false indicator) are filled
+            if(this[i].type != "submit"
+            && this[i].value === ''
+            && this[i].getAttribute("data-validate") != "false")
+            {
                 is_valid = false;
                 break;
             }
