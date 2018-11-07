@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
    var divToChange = document.getElementsByClassName("display_and_form");
    var changeButton = document.getElementsByClassName("set_to_form");
    
-   changeButton[0].addEventListener("click", function() {
+   if(changeButton.length == 1) {
+      changeButton[0].addEventListener("click", function() {
    
        if((divToChange.length >= 1) && (changeButton.length == 1) && (parentDiv.length == 1)) {
            
@@ -64,7 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
            // now we change the "change" button to a submit one
            changeButton.innerHTML = "Valider";
            
-       }
-   });
+          }
+      });
+   }
     
 });
