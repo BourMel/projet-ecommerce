@@ -60,6 +60,15 @@ document.addEventListener('DOMContentLoaded', function() {
                   
                   if(spanToChange[j].hasAttribute("data-validate")) {
                       input.setAttribute("data-validate", spanToChange[j].getAttribute("data-validate"));
+                  } else {
+                    //every other field only needs to be filled
+                    $(input).on("keyup", function() {
+                        if(this.value.length > 0) {
+                            this.className = "";
+                        } else {
+                            this.className = "invalid";
+                        }
+                    })
                   }
                    
                   // and we add the new item
@@ -71,6 +80,18 @@ document.addEventListener('DOMContentLoaded', function() {
            
            // now we change the "change" button to a submit one
            changeButton.innerHTML = "Valider";
+           
+           // check email
+           document.getElementById("mail").addEventListener("keyup", function() {
+                if(validateEmail(this.value)) {
+                    this.className = "";
+                    addErrorMessage("mail", "");
+                    
+                } else {
+                    this.className = "invalid";
+                    addErrorMessage("mail", "Votre adresse email n'est pas valide");
+                }
+            });
            
           }
       });

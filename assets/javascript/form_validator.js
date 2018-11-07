@@ -1,5 +1,3 @@
-/**FRONT VALIDATION**/
-
 /**
  * If msg is given, adds an error message next to an element
  * Else, remove it
