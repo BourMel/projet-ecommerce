@@ -422,3 +422,27 @@ form .invalid {
     /*fix margin auto*/
     margin: 60px 40vw;
 }
+
+/*******/
+/**404**/
+/*******/
+
+.page_404 .wrapper {
+    text-align: center;
+}
+
+.page_404 h2 {
+    padding: 50px 0;
+}
+
+.page_404 p {
+    
+}
+
+.page_404 a,
+.page_404 a:hover,
+.page_404 a:focus,
+.page_404 a:visited {
+    text-decoration: none;
+    color: #339966;
+}

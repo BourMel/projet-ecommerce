@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
            // and replace it with the form
            parentDiv[0].appendChild(form);
            
+           // we add a validation
+           validateFilledForm("parent_form", "city");
+           
            // this elements changed so we get them again
            divToChange = document.getElementsByClassName("display_and_form");
            changeButton = document.getElementsByClassName("set_to_form")[0];

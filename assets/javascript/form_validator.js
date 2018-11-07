@@ -39,7 +39,8 @@ function addErrorMessage(id, msg) {
  **/
 function validateFilledForm(formId, lastFieldId) {
     $("#"+formId).on('submit', function(e){
-            
+        console.log("yeay");
+        e.preventDefault();
         is_valid = true;
         
         for(var i=0; i<this.length; i++) {
@@ -124,11 +125,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // only checks that the fields are filled
     validateFilledForm("connection_form", "password");
-    
-    /**ACCOUNT**/
-    
-    //same
-    validateFilledForm("parent_form", "city");
  
 });
 
