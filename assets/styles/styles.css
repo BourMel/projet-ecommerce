@@ -346,7 +346,6 @@ form .invalid {
 
 .shop form img {
     width: 40px;
-    /*float: left;*/
     margin-right: 30px;
 }
 
@@ -429,14 +428,11 @@ form .invalid {
 
 .page_404 .wrapper {
     text-align: center;
+    padding-bottom: 50px;
 }
 
 .page_404 h2 {
-    padding: 50px 0;
-}
-
-.page_404 p {
-    
+    padding: 10vh 0;
 }
 
 .page_404 a,

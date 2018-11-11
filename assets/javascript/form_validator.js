@@ -39,7 +39,7 @@ function addErrorMessage(id, msg) {
  **/
 function validateFilledForm(formId, lastFieldId) {
     $("#"+formId).on('submit', function(e) {
-        is_valid = true;
+        var is_valid = true;
         
         for(var i=0; i<this.length; i++) {
             // we check that all fields (except submit button

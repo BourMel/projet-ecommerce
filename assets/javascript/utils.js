@@ -10,7 +10,7 @@ function validateEmail(email) {
 }
 
 /**
- * Do the same as ParseFloat, but works with a ',' instead of a point
+ * Do the same as ParseFloat, but works with a ',' instead of a point in the number
  * params:
  * string
  */
