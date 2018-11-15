@@ -1,2 +1,3 @@
 <?php
-    require "./views/product.html";
+    $template = $twig->load("product.html");
+    echo $template->render();

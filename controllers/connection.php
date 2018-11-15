@@ -1,3 +1,3 @@
 <?php
-    require "./views/connection.html";
-    
+    $template = $twig->load("connection.html");
+    echo $template->render();

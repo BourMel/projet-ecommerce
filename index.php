@@ -1,10 +1,16 @@
 <?php
     // all requests call this file (.htaccess rule)
 
-    $path = "./controllers/";
 
-    require "./views/shared/head.html";
-    require "./views/shared/header.html";
+    require_once "./vendor/autoload.php";
+
+    // twig initialisation
+    $loader = new Twig_Loader_Filesystem('./views');
+    $twig = new Twig_Environment($loader, array(
+        'cache' => './twig_cache'
+    ));
+
+    $path = "./controllers/";
 
     // handle url redirections
     switch($_SERVER['REQUEST_URI']) {
@@ -28,8 +34,7 @@
             require $path."product.php";
             break;
         default:
-            require "./views/404.html";
+            $template = $twig->load("404.html");
+            echo $template->render();
             break;
     }
-
-    require "./views/shared/footer.html";

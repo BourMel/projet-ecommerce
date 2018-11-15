@@ -1,2 +1,3 @@
 <?php
-    require "./views/cart.html";
+    $template = $twig->load("cart.html");
+    echo $template->render();

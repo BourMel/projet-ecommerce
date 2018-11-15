@@ -1,2 +1,3 @@
 <?php
-    require "./views/account.html";
+    $template = $twig->load("account.html");
+    echo $template->render();

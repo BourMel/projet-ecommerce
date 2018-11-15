@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Ephedra</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/svg" href="../assets/icons/favicon.svg">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/styles/styles.css">
+        <link rel="stylesheet" href="../assets/styles/styles_devices.css">
+    </head>
+
+    <body>
+        <nav class="wrapper main-menu d-flex justify-content-end">
+            <ul class="list-inline">
+                <li class="list-inline-item catalogue">
+                    <a href="/catalogue">
+                        <img src="../assets/icons/list.svg" alt="Catalogue" title="Catalogue">
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="/panier">
+                        <img src="../assets/icons/buy.svg" alt="Panier" title="Panier">
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="/compte">
+                        <img src="../assets/icons/account.svg" alt="Compte client" title="Compte client">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <header>
+            <h1><a href="/">Ephedra</a></h1>
+        </header>
+
+        {% block content %}
+
+        {% endblock %}
+
+        <footer>
+            <div class="row wrapper">
+                <section class="col">
+                    <h4>A propos</h4>
+                    <p>
+                        Sur Ephedra (une boutique purement fictive), vous pourrez acheter de très jolies plantes fictives, imaginaires ou irréelles.
+                        Frais de port offerts !
+                    </p>
+                </section>
+
+                <section class="col">
+                    <h4>Plan du site</h4>
+                    <ul>
+                        <li><a href="/">Accueil</a></li>
+                        <li><a href="/catalogue">Catalogue</a></li>
+                        <li><a href="/catalogue?search=true">Rechercher un article</a></li>
+                        <li><a href="/compte">Mon compte client</a></li>
+                    </ul>
+                </section>
+            </div>
+
+            <section class="copyright">
+                <p class="wrapper">Ephedra © 2018</p>
+            </section>
+        </footer>
+
+        <script
+              src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+              integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+              crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <script src="../assets/javascript/utils.js"></script>
+        <script src="../assets/javascript/form_validator.js"></script>
+        <script src="../assets/javascript/display_to_form.js"></script>
+        <script src="../assets/javascript/plus_minus.js"></script>
+    </body>
+</html>
