@@ -1,3 +1,19 @@
+# Ephedra
+
+Réalisation d'un site e-commerce en PHP et JavaScript grâce aux technologies suivantes :
+
+## Front-end 
+
+Bootstrap
+Twig
+
+## Back-end 
+
+Doctrine
+Slim
+
+## Etat d'avancement du projet
+
 Ce projet contient actuellement l'interface front des pages suivantes :
 
 '/', ou 'index.php' :
