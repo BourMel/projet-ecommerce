@@ -1,14 +1,16 @@
 <?php
     // all requests call this file (.htaccess rule)
 
-
     require_once "./vendor/autoload.php";
 
     // twig initialisation
     $loader = new Twig_Loader_Filesystem('./views');
     $twig = new Twig_Environment($loader, array(
-        'cache' => './twig_cache'
+        'cache' => './twig_cache',
+        'debug' => 'true'
     ));
+    
+    setlocale(LC_MONETARY, 'fr_FR');
 
     $path = "./controllers/";
 
@@ -16,7 +18,13 @@
     switch($_SERVER['REQUEST_URI']) {
         case "/":
         case "/index.php":
-            require $path."home.php";
+            require_once $path."home.php";
+            
+            $homeController = new HomeController();
+            $homeController->index();
+            
+            
+            
             break;
         case "/catalogue":
             require $path."shop.php";

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<main class="accueil">
+    <div class="catalogue">
+        <div class="wrapper d-flex justify-content-between">
+            <p>Venez découvrir nos produits !</p>
+            <a href="/catalogue" class="align-self-end">Visitez notre catalogue</a>
+        </div>
+    </div>
+
+    <span class="separation d-flex flex-column">
+        <img src="../assets/icons/heart.svg">
+        <h2>Meilleures ventes</h2>
+    </span>
+    
+    <div class="best wrapper d-flex justify-content-between">
+        {% for article in best_articles %}
+            <a href="/produit" class="item">
+                <img src="../assets/images/article_small3.jpg">
+                <h3>{{ article.name }}</h3>
+                <span class="price">{{ article.price|number_format(2, ',', ' ') }} €</span>
+            </a>
+        {% endfor %}
+    </div>
+
+</main>
+
+{% endblock %}
