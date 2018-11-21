@@ -1,0 +1,33 @@
+{% extends "layout.twig" %}
+{% block content %}
+
+<main class="product_page">
+    <span class="separation titre d-flex flex-column">
+        <img src="../assets/icons/product.svg">
+        <h2>Page produit</h2>
+    </span>
+
+    <div class="wrapper row">
+
+        <div class="col-lg-6 col-sm-12">
+           <img src="../assets/images/article_medium.jpg">
+        </div>
+
+        <div class="col-lg-6 col-sm-12">
+            <h3>
+                {{ article.name }}
+                {# there will be a method on article to fetch the category name #}
+                <span class="category">Catégorie</span>
+            </h3>
+
+            <span class="price">{{ article.price|number_format(2, ',', ' ') }} €</span>
+
+            <p>{{ article.description }}</p>
+
+            <button>Commander</button>
+        </div>
+
+    </div>
+</main>
+
+{% endblock %}

@@ -5,7 +5,7 @@ class Order {
     public $date;
     public $client_id;
       
-    public function __construct($lastname, $firstname, $address, $city, $postal_code)    
+    public function __construct($date, $client_id)    
     {    
         $this->id = 0;
         $this->date = $date;

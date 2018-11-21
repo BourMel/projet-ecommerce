@@ -18,28 +18,46 @@
     switch($_SERVER['REQUEST_URI']) {
         case "/":
         case "/index.php":
-            require_once $path."home.php";
+            require_once $path."HomeController.php";
             
             $homeController = new HomeController();
             $homeController->index();
-            
-            
-            
+    
             break;
         case "/catalogue":
-            require $path."shop.php";
+            require $path."ShopController.php";
+            
+            $shopController = new ShopController();
+            $shopController->index();
+            
             break;
         case "/compte":
-            require $path."account.php";
+            require $path."AccountController.php";
+            
+            $accountController = new AccountController();
+            $accountController->index();
+            
             break;
         case "/connexion":
-            require $path."connection.php";
+            require $path."ConnectionController.php";
+            
+            $connectionController = new ConnectionController();
+            $connectionController->index();
+            
             break;
         case "/panier":
-            require $path."cart.php";
+            require $path."CartController.php";
+            
+            $cartController = new CartController();
+            $cartController->index();
+            
             break;
         case "/produit":
-            require $path."product.php";
+            require $path."ProductController.php";
+            
+            $productController = new ProductController();
+            $productController->index();
+            
             break;
         default:
             $template = $twig->load("404.html");

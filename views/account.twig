@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout.twig" %}
 {% block content %}
 
 <main class="account_page">
@@ -14,8 +14,8 @@
                 <h4>Compte</h4>
 
                 <div id="account_infos" class="display_and_form">
-                    <span id="mail" data-label="Adresse email">jea_dupont@hello.net</span>
-                    <span id="password" data-label="Mot de passe (obligatoire)" data-type="password">*****</span>
+                    <span id="mail" data-label="Adresse email">{{ user.email }}</span>
+                    <span id="password" data-label="Mot de passe (obligatoire)" data-type="password">{{ user.password }}</span>
                     <span id="new_password" data-label="Nouveau mot de passe (option)" data-validate="false" data-type="password"></span>
                 </div>
             </div>
@@ -24,13 +24,13 @@
                 <h4>Adresse</h4>
 
                 <div id="client_infos" class="display_and_form">
-                    <span id="first_name" class="inline" data-label="Prénom">Jeanne</span>
-                    <span id="last_name" data-label="Nom">Dupont</span>
+                    <span id="first_name" class="inline" data-label="Prénom">{{ client.firstname }}</span>
+                    <span id="last_name" data-label="Nom">{{ client.lastname }}</span>
 
-                    <span id="address" data-label="Adresse">7, rue de Whatever</span>
+                    <span id="address" data-label="Adresse">{{ client.address }}</span>
 
-                    <span id="cp" class="inline" data-label="Code postal">67000</span>
-                    <span id="city" data-label="Ville">Strasbourg</span>
+                    <span id="cp" class="inline" data-label="Code postal">{{ client.postal_code }}</span>
+                    <span id="city" data-label="Ville">{{ client.city }}</span>
                 </div>
             </div>
 
@@ -38,9 +38,9 @@
                <h4>Commandes</h4>
 
                <div id="command_infos">
-                    <span id="done">6 commandes réalisées</span>
-                    <span id="received">5 commandes réceptionnées</span>
-                    <span id="processing">1 commande en cours de traitement</span>
+                    <span id="done">{{ nb_orders }} commandes réalisées</span>
+                    <span id="received">{{ nb_received_orders }} commandes réceptionnées</span>
+                    <span id="processing">{{ nb_processed_orders }} commande en cours de traitement</span>
                 </div>
             </div>
 

@@ -379,6 +379,11 @@ form .invalid {
     display: inline-block;
 }
 
+.shop .content .item h3 {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
 /****************/
 /**PRODUCT VIEW**/
 /****************/

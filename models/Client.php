@@ -1,6 +1,6 @@
 <?php
 
-class Category {  
+class Client {  
     public $id;  
     public $lastname;
     public $firstname;
