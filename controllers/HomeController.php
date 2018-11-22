@@ -15,18 +15,19 @@ class HomeController {
         global $entityManager;
         
         $this->twig = $twig;
-        $this->articleRepo = $entityManager->getRepository(Article::class);
+        $this->queryBuilder = $entityManager
+                            ->getRepository(Article::class)
+                            ->createQueryBuilder('articles');
     }
     
     public function index() {
-        // fake articles to show in template
-        $articles = [
-            new Article("Ephedra", 42.00, "La plante emblématique de notre site !", 1),
-            new Article("Ficus", 18.00, "Une superbe idée cadeau", 1),
-            new Article("Fougère", 26.00, "Parce que.", 2)
-        ];
-        
-        // $articles = $this->articleRepo->getBestSales();
+
+        $articles = $this->queryBuilder
+            ->from('Article', 'a')
+            ->orderBy('a.name', 'ASC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult();
         
         $template = $this->twig->load("home.twig");
         echo $template->render(["best_articles" => $articles]);
