@@ -1,67 +1,113 @@
 <?php
-    // all requests call this file (.htaccess rule)
 
-    require_once "./vendor/autoload.php";
-    require_once "./bootstrap.php";
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
 
-    // twig initialisation
-    $loader = new Twig_Loader_Filesystem('./views');
-    $twig = new Twig_Environment($loader, array(
-        'cache' => './twig_cache',
-        'debug' => 'true'
-    ));
+require_once './vendor/autoload.php';
+
+setlocale(LC_MONETARY, 'fr_FR');
+
+// DOCTRINE INIT
+require_once "./bootstrap.php";
+
+// TWIG INIT
+// $loader = new Twig_Loader_Filesystem('./views');
+// $twig = new Twig_Environment($loader, array(
+//     'cache' => './twig_cache',
+//     'debug' => 'true'
+// ));
+
+// SLIM INIT
+$app = require_once './config/bootstrap.php';
+$app->run();
+
+
+
+
+// SLIM CONFIGURATION
+
+// $config['displayErrorDetails'] = true;
+// $config['addContentLengthHeader'] = false;
+
+// $config['db']['host']   = 'localhost';
+// $config['db']['user']   = 'root';
+// $config['db']['pass']   = '';
+// $config['db']['dbname'] = 'ephedra';
+
+// SLIM START
+
+// $app = new \Slim\App(['settings' => $config]);
+
+// ROUTES
+
+// echo "hello";
+
+// $app->get('/', function (Request $request, Response $response, array $args) {
+
+//     $response = $this->view->render('home.twig');
+
+//     return $response;
+// });
+
+// $app->run();
+
+
+
+
+
     
-    setlocale(LC_MONETARY, 'fr_FR');
-
-    $path = "./controllers/";
-
-    // handle url redirections
-    switch($_SERVER['REQUEST_URI']) {
-        case "/":
-        case "/index.php":
-            require_once $path."HomeController.php";
-            
-            $homeController = new HomeController();
-            $homeController->index();
     
-            break;
-        case "/catalogue":
-            require $path."ShopController.php";
+    // 
+
+    // $path = "./controllers/";
+
+    // // handle url redirections
+    // switch($_SERVER['REQUEST_URI']) {
+    //     case "/":
+    //     case "/index.php":
+    //         require_once $path."HomeController.php";
             
-            $shopController = new ShopController();
-            $shopController->index();
+    //         $homeController = new HomeController();
+    //         $homeController->index();
+    
+    //         break;
+    //     case "/catalogue":
+    //         require $path."ShopController.php";
             
-            break;
-        case "/compte":
-            require $path."AccountController.php";
+    //         $shopController = new ShopController();
+    //         $shopController->index();
             
-            $accountController = new AccountController();
-            $accountController->index();
+    //         break;
+    //     case "/compte":
+    //         require $path."AccountController.php";
             
-            break;
-        case "/connexion":
-            require $path."ConnectionController.php";
+    //         $accountController = new AccountController();
+    //         $accountController->index();
             
-            $connectionController = new ConnectionController();
-            $connectionController->index();
+    //         break;
+    //     case "/connexion":
+    //         require $path."ConnectionController.php";
             
-            break;
-        case "/panier":
-            require $path."CartController.php";
+    //         $connectionController = new ConnectionController();
+    //         $connectionController->index();
             
-            $cartController = new CartController();
-            $cartController->index();
+    //         break;
+    //     case "/panier":
+    //         require $path."CartController.php";
             
-            break;
-        case "/produit":
-            require $path."ProductController.php";
+    //         $cartController = new CartController();
+    //         $cartController->index();
             
-            $productController = new ProductController();
-            $productController->index();
+    //         break;
+    //     case "/produit":
+    //         require $path."ProductController.php";
             
-            break;
-        default:
-            $template = $twig->load("404.html");
-            echo $template->render();
-            break;
-    }
+    //         $productController = new ProductController();
+    //         $productController->index();
+            
+    //         break;
+    //     default:
+    //         $template = $twig->load("404.html");
+    //         echo $template->render();
+    //         break;
+    // }

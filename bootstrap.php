@@ -4,7 +4,7 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
 $isDevMode = true;
-$config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/models"), $isDevMode);
+$configDb = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/models"), $isDevMode);
 
 $dbParams = array(
     'driver'   => 'pdo_mysql',
@@ -13,4 +13,4 @@ $dbParams = array(
     'dbname'   => 'ephedra'
 );
 
-$entityManager = EntityManager::create($dbParams, $config);
+$entityManager = EntityManager::create($dbParams, $configDb);
