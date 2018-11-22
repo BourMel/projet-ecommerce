@@ -2,6 +2,7 @@
     // all requests call this file (.htaccess rule)
 
     require_once "./vendor/autoload.php";
+    require_once "./bootstrap.php";
 
     // twig initialisation
     $loader = new Twig_Loader_Filesystem('./views');

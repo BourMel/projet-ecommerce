@@ -1,11 +1,21 @@
 <?php
 
-class Article {  
-    public $id;  
-    public $name;  
-    public $price;  
-    public $description;  
-    public $category_id;
+/**
+ * @Entity(repositoryClass="ArticleRepository")
+ * @Entity @Table(name="articles")
+ **/
+
+class Article {
+    /** @Id @Column(type="integer") @GeneratedValue **/
+    private $id;
+    /** @Column(type="string") **/
+    private $name; 
+    /** @Column(type="float") **/
+    private $price;  
+    /** @Column(type="text") **/
+    private $description;
+    /** @Column(type="integer") **/
+    private $category_id;
       
     public function __construct($name, $price, $description, $category_id)    
     {    
@@ -15,4 +25,31 @@ class Article {
         $this->description = $description;
         $this->category_id = $category_id;
     }
+    
+    /**
+     * All getters
+     */
+    public function getId() { return $this->id; }
+    
+    public function getName() { return $this->name; }
+    
+    public function getPrice() { return $this->price; }
+    
+    public function getDescription() { return $this->description; }
+    
+    public function getCategory() {
+        // @TODO
+        return $category_id;
+    }
+    
+    /**
+     * All setters
+     */
+    public function setName($name) { $this->name = $name; }
+    
+    public function setPrice($price) { $this->price = $price; }
+    
+    public function setDescription($description) { $this->description = $description; }
+    
+    public function setCategory($category) { $this->category_id = $category; }
 } 
