@@ -1,7 +1,8 @@
 <?php
 
+namespace App\Models;
+
 /**
- * @Entity(repositoryClass="ArticleRepository")
  * @Entity @Table(name="articles")
  **/
 

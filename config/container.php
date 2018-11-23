@@ -6,6 +6,10 @@ use Slim\Container;
 
 $container = $app->getContainer();
 
+$container['controller.home'] = function($container) {
+    return new App\Controllers\HomeController($container['view']);
+};
+
 // activating routes in a subfolder
 $container['environment'] = function () {
     $scriptName = $_SERVER['SCRIPT_NAME'];

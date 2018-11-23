@@ -5,24 +5,19 @@ use Slim\Http\Response;
 
 require_once "./controllers/HomeController.php";
 
-$app->get('/', 'HomeController:index');
+$app->get('/', 'App\controllers\HomeController:index');
 
-// $app->get('/', function (Request $request, Response $response) {
+// $app->get('/hello/{name}', function (Request $request, Response $response) {
+//     $name = $request->getAttribute('name');
+//     $response->getBody()->write("Hello, $name");
 
-//     return $this->get('view')->render($response, 'home.twig', $viewData);
-// })->setName('home');
+//     return $response;
+// });
 
-$app->get('/hello/{name}', function (Request $request, Response $response) {
-    $name = $request->getAttribute('name');
-    $response->getBody()->write("Hello, $name");
+// $app->get('/time', function (Request $request, Response $response) {
+//     $viewData = [
+//         'now' => date('Y-m-d H:i:s')
+//     ];
 
-    return $response;
-});
-
-$app->get('/time', function (Request $request, Response $response) {
-    $viewData = [
-        'now' => date('Y-m-d H:i:s')
-    ];
-
-    return $this->get('view')->render($response, 'time.twig', $viewData);
-});
+//     return $this->get('view')->render($response, 'time.twig', $viewData);
+// });

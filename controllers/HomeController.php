@@ -1,6 +1,11 @@
 <?php
 
-require_once("./models/Article.php");
+namespace App\Controllers;
+
+use App\Models\Article as Article;
+
+
+// require_once("../models/Article.php");
 
 global $twig;
 global $entityManager;
@@ -21,6 +26,8 @@ class HomeController {
     }
     
     public function index() {
+        
+        echo "hello";
 
         $articles = $this->queryBuilder
             ->from('Article', 'a')
