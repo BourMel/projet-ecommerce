@@ -1,11 +1,7 @@
 <?php
 
 namespace App\Controllers;
-
-use App\Models\Article as Article;
-
-
-// require_once("../models/Article.php");
+use App\Models\Article as Article; 
 
 global $twig;
 global $entityManager;
@@ -26,16 +22,14 @@ class HomeController {
     }
     
     public function index() {
-        
-        echo "hello";
 
         $articles = $this->queryBuilder
-            ->from('Article', 'a')
+            ->from('App\Models\Article', 'a')
             ->orderBy('a.name', 'ASC')
             ->setMaxResults(3)
             ->getQuery()
             ->getResult();
-        
+            
         $template = $this->twig->load("home.twig");
         echo $template->render(["best_articles" => $articles]);
     }
