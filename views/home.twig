@@ -17,7 +17,9 @@
     <div class="best wrapper d-flex justify-content-between">
         {% for article in best_articles %}
             <a href="/produit" class="item">
-                <img src="../assets/images/article_small3.jpg">
+                {% if article.images()[0] != null %}
+                    <img src="../assets/images/{{ article.images()[0].name }}.jpg">
+                {% endif %}
                 <h3>{{ article.name }}</h3>
                 <span class="price">{{ article.price|number_format(2, ',', ' ') }} €</span>
             </a>

@@ -17,6 +17,8 @@ class Article {
     private $description;
     /** @Column(type="integer") **/
     private $category_id;
+    /** @OneToMany(targetEntity="ArticleImage", mappedBy="article") **/
+    private $images;
       
     public function __construct($name, $price, $description, $category_id)    
     {    
@@ -40,7 +42,11 @@ class Article {
     
     public function getCategory() {
         // @TODO
-        return $category_id;
+        return $this->category_id;
+    }
+    
+    public function getImages() {
+        return $this->images;
     }
     
     /**

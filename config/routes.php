@@ -6,6 +6,10 @@ use Slim\Http\Response;
 require_once "./controllers/HomeController.php";
 
 $app->get('/', 'App\controllers\HomeController:index');
+$app->get('/index.php', 'App\controllers\HomeController:index');
+
+$app->get('/catalogue', 'App\controllers\ShopController:index');
+
 
 // $app->get('/hello/{name}', function (Request $request, Response $response) {
 //     $name = $request->getAttribute('name');

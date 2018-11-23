@@ -1,9 +1,20 @@
 <?php
 
+namespace App\Models;
+
+/**
+ * @Entity @Table(name="article_image")
+ */
 class ArticleImage {  
+    /** @Id @Column(type="integer") @GeneratedValue **/
     public $id;  
+    /** @Column(type="string") **/
     public $name;  
-    public $article_id;
+    /**
+     * @ManyToOne(targetEntity="Article", inversedBy="images")
+     * @JoinColumn(name="article_id", referencedColumnName="id")
+     */
+    public $article;
       
     public function __construct($name, $article_id)    
     {    

@@ -1,6 +1,6 @@
 <?php
 
-// this file allows to use console line tools
+// this file allows to use Doctrine console line tools
 
 require_once "bootstrap.php";
 

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Doctrine Setup
+ */
+
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
@@ -10,7 +14,7 @@ $dbParams = array(
     'driver'   => 'pdo_mysql',
     'user'     => 'root',
     'password' => '',
-    'dbname'   => 'ephedra'
+    'dbname'   => 'ephedra',
 );
 
 $entityManager = EntityManager::create($dbParams, $configDb);
