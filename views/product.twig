@@ -10,7 +10,9 @@
     <div class="wrapper row">
 
         <div class="col-lg-6 col-sm-12">
-           <img src="../assets/images/article_medium.jpg">
+            {% if article.images()[0] != null %}
+                <img src="../assets/images/{{ article.images()[0].name }}.jpg">
+            {% endif %}
         </div>
 
         <div class="col-lg-6 col-sm-12">

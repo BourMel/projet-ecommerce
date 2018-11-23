@@ -56,7 +56,7 @@
 
         <div class="content d-flex justify-content-between">
             {% for article in articles %}
-                <a href="/produit" class="item">
+                <a href="/produit/{{ article.id }}" class="item">
                     {% if article.images()[0] != null %}
                         <img src="../assets/images/{{ article.images()[0].name }}.jpg">
                     {% endif %}

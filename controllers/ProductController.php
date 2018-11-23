@@ -1,8 +1,10 @@
 <?php
 
-require_once("./models/Article.php");
+namespace App\Controllers;
+use App\Models\Article as Article; 
 
 global $twig;
+global $entityManager;
 
 class ProductController {
     
@@ -10,12 +12,14 @@ class ProductController {
     
     public function __construct() {
         global $twig;
+        global $entityManager;
+        
         $this->twig = $twig;
+        $this->entityManager = $entityManager;
     }
     
-    public function index() {
-        // fake article to show in template
-        $article = new Article("Ephedra", 42.00, "La plante emblématique de notre site !", 1);
+    public function index($request, $response, $args) {
+        $article = $this->entityManager->find("App\Models\Article", (int)$args["id"]);
         
         $template = $this->twig->load("product.twig");
         echo $template->render(["article" => $article]);

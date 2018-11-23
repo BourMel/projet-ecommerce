@@ -10,6 +10,7 @@ $app->get('/index.php', 'App\controllers\HomeController:index');
 
 $app->get('/catalogue', 'App\controllers\ShopController:index');
 
+$app->get('/produit/{id}', 'App\controllers\ProductController:index');
 
 // $app->get('/hello/{name}', function (Request $request, Response $response) {
 //     $name = $request->getAttribute('name');

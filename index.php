@@ -5,7 +5,6 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 use App\Controllers\HomeController;
 
-
 require_once './vendor/autoload.php';
 
 setlocale(LC_MONETARY, 'fr_FR');
@@ -19,6 +18,15 @@ $twig = new Twig_Environment($loader, array(
     'cache' => './twig_cache',
     'debug' => 'true'
 ));
+
+// SESSION
+
+session_cache_limiter(false);
+session_start();
+
+// if (!isset($_SESSION['panier'])) {
+//   $_SESSION['panier'] = [];
+// }
 
 // SLIM INIT
 $app = require_once './config/bootstrap.php';
