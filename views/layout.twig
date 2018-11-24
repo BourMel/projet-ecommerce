@@ -21,8 +21,8 @@
                 <li class="list-inline-item">
                     <a href="/panier">
                         <img src="../assets/icons/buy.svg" alt="Panier" title="Panier">
-                        {% if cart != null %}
-                            <span class="cart_content">{{cart | length}}</span>
+                        {% if cart_size > 0 %}
+                            <span class="cart_content">{{cart_size}}</span>
                         {% endif %}
                     </a>
                 </li>

@@ -13,12 +13,12 @@ $(document).ready(function() {
        
         let articleId = $(this).data("article");
        
-        let request = $.ajax("/cart", {
+        let request = $.ajax("/panier", {
             type: "post",
             data: {"article_id": articleId}
         })
         .done(function(response, textStatus, jqXHR) {
-            console.log("yes");
+            location.reload();
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
             console.log(errorThrown);

@@ -20,11 +20,17 @@ class ProductController {
     
     public function index($request, $response, $args) {
         $article = $this->entityManager->find("App\Models\Article", (int)$args["id"]);
+
+        // count articles in cart
+        $cart_size = 0;
+        foreach ($_SESSION['cart'] as $item => $quantity) {
+            $cart_size += $quantity;
+        }
         
         $template = $this->twig->load("product.twig");
         echo $template->render([
             "article" => $article,
-            "cart" => $_SESSION["cart"]
+            "cart_size" => $cart_size
         ]);
     }
     
