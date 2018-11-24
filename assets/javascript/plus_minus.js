@@ -60,9 +60,11 @@ document.addEventListener('DOMContentLoaded', function() {
            
            minus[i].addEventListener("click", function() {
               
+              var article_id = this.parentNode.getAttribute("data-article");
+              
                // send ajax request
                if(this.parentNode.hasAttribute("data-article")) {
-                  removeQuantityToProductCart(this.parentNode.getAttribute("data-article"));
+                  removeQuantityToProductCart(article_id);
                }
               
                var quantity = parseInt(this.parentNode.querySelector(".quantity").innerHTML);
@@ -78,9 +80,13 @@ document.addEventListener('DOMContentLoaded', function() {
                   this.parentNode.parentNode.querySelector(".price").innerHTML = newPrice;
                   
                   if(quantity == 1) {
+                      // delete article from list
                       var divToDelete = this.parentNode.parentNode;
-                      
                       divToDelete.parentNode.removeChild(divToDelete);
+                      
+                      // remove associated picture
+                      var imageToDelete = document.getElementById("image_" + article_id);
+                      imageToDelete.parentNode.removeChild(imageToDelete);
                   }
                }
                

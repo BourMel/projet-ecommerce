@@ -12,7 +12,7 @@
         <div class="box col-lg-6 col-sm-12">
             <h4>Déjà inscrit ?</h4>
 
-            <form id="connection_form" method="post" action="">
+            <form id="connection_form" method="post" action="/connexion">
                 <label for="mail">Adresse email</label>
                 <input id="mail" type="text" placeholder="Adresse email">
 
@@ -30,33 +30,33 @@
                 Afficher le formulaire d'inscription
             </button>
 
-            <form id="inscription" class="collapse" method="post" action="">
+            <form id="inscription" class="collapse" method="post" action="/inscription">
                 <fieldset>
                     <label for="mail_insc">Adresse email</label>
-                    <input id="mail_insc" type="text" placeholder="Adresse email">
+                    <input id="mail_insc" name="email" type="text" placeholder="Adresse email">
 
                     <label for="password_insc">Mot de passe</label>
-                    <input id="password_insc" type="password" placeholder="Mot de passe">
+                    <input id="password_insc" name="password" type="password" placeholder="Mot de passe">
 
                     <label for="password_conf">Confirmation du mot de passe</label>
-                    <input id="password_conf" type="password" placeholder="Confirmation du mot de passe">
+                    <input id="password_conf" name="password_conf" type="password" placeholder="Confirmation du mot de passe">
                 </fieldset>
 
                 <fieldset>
                     <label for="last_name">Nom</label>
-                    <input id="last_name" class="required" type="text" placeholder="Nom">
+                    <input id="last_name" name="lastname" class="required" type="text" placeholder="Nom">
 
                     <label for="first_name">Prénom</label>
-                    <input id="first_name" class="required" type="text" placeholder="Prénom">
+                    <input id="first_name" name="firstname" class="required" type="text" placeholder="Prénom">
 
                     <label for="address">Adresse</label>
-                    <input id="address" class="required" type="text" placeholder="Adresse">
+                    <input id="address" name="address" class="required" type="text" placeholder="Adresse">
 
                     <label for="cp">Code postal</label>
-                    <input id="cp" class="required" type="text" placeholder="Code postal">
+                    <input id="cp" name="cp" class="required" type="text" placeholder="Code postal">
 
                     <label for="city">Ville</label>
-                    <input id="city" class="required" type="text" placeholder="Ville">
+                    <input id="city" name="city" class="required" type="text" placeholder="Ville">
                 </fieldset>
 
                 <button type="submit">Inscription</button>

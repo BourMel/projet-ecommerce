@@ -8,35 +8,43 @@
     </span>
 
     <div class="wrapper row">
-
-        <div class="box col-lg-6 col-sm-12">
-            {% for article in cart_articles %}
-                <img class="item" src="../assets/images/{{ article.images[0].name }}.jpg">
-            {% endfor %}
-        </div>
-
-        <div class="box col-lg-6 col-sm-12">
-            {% for article in cart_articles %}
-                <div class="info d-flex">
-                    <span data-article="{{ article.id }}">
-                        <h3>{{ article.name }} x
-                            <span class="quantity">
-                                {{ cart_quantities[article.id] }}
-                            </span>
-                        </h3>
-                        <span class="plus">+</span>
-                        <span class="minus">-</span>
-                    </span>
-                    <span class="price">{{ (article.price*cart_quantities[article.id]) | number_format(2, ',', ' ') }} €</span>
-                </div>
-            {% endfor %}
-
-            <p class="total">Total: <span>
-                {{ total | number_format(2, ',', ' ')  }} €
-            </span></p>
-
-            <button>Valider</button>
-        </div>
+        
+        {% if cart_articles | length > 0 %}
+            <div class="box col-lg-6 col-sm-12">
+                {% for article in cart_articles %}
+                    <img class="item" id="image_{{ article.id }}" src="../assets/images/{{ article.images[0].name }}.jpg">
+                {% endfor %}
+            </div>
+    
+            <div class="box col-lg-6 col-sm-12">
+                {% for article in cart_articles %}
+                    <div class="info d-flex">
+                        <span data-article="{{ article.id }}">
+                            <h3>{{ article.name }} x
+                                <span class="quantity">
+                                    {{ cart_quantities[article.id] }}
+                                </span>
+                            </h3>
+                            <span class="plus">+</span>
+                            <span class="minus">-</span>
+                        </span>
+                        <span class="price">{{ (article.price*cart_quantities[article.id]) | number_format(2, ',', ' ') }} €</span>
+                    </div>
+                {% endfor %}
+    
+                <p class="total">Total: <span>
+                    {{ total | number_format(2, ',', ' ')  }} €
+                </span></p>
+    
+                <button>Valider</button>
+            </div>
+            
+            
+        {% else %}
+            <div class="box col-lg-12 col-sm-12">
+                Il semble que votre panier soit totalement vide. Allez rapidement corriger cette erreur !
+            </div>
+        {% endif %}
     </div>
 </main>
 

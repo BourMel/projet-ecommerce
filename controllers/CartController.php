@@ -9,7 +9,7 @@ global $entityManager;
 class CartController {
     
     private $twig;
-    private $articleRepo;
+    private $entityManager;
     
     public function __construct() {
         global $twig;
