@@ -29,6 +29,8 @@ class BaseController {
         if(isset($_SESSION['user'])) {
             $this->logged_user = $this->entityManager->find("App\Models\User", $_SESSION['user']);
         }
+        
+        echo isset($_SESSION['user']);
     }
     
 }

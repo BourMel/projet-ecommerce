@@ -453,6 +453,21 @@ form .invalid {
 /**ACCOUNT**/
 /***********/
 
+.account_page h2 {
+    margin-bottom: 0;
+}
+
+.account_page .logout {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #aec2bb;
+}
+
+.account_page .logout:hover {
+    text-decoration: none;
+    color: #339966;
+}
+
 .account_page #account_infos span,
 .account_page #client_infos span,
 .account_page #command_infos span {

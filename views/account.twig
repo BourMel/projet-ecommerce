@@ -5,6 +5,7 @@
     <span class="separation titre d-flex flex-column">
         <img src="../assets/icons/account.svg">
         <h2>Compte client</h2>
+        <a href="#" class="logout">Se déconnecter ?</a>
     </span>
 
     <div class="parent_div">
@@ -15,7 +16,7 @@
 
                 <div id="account_infos" class="display_and_form">
                     <span id="mail" data-label="Adresse email">{{ user.email }}</span>
-                    <span id="password" data-label="Mot de passe (obligatoire)" data-type="password">{{ user.password }}</span>
+                    <span id="password" data-label="Mot de passe (obligatoire)" data-type="password">************</span>
                     <span id="new_password" data-label="Nouveau mot de passe (option)" data-validate="false" data-type="password"></span>
                 </div>
             </div>

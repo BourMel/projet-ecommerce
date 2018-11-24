@@ -1,23 +1,27 @@
 <?php
 
-require_once("./models/User.php");
-require_once("./models/Client.php");
+namespace App\Controllers;
+use App\Models\User as User; 
+use App\Models\Client as Client; 
 
-global $twig;
-
-class AccountController {
+class AccountController extends BaseController {
     
     private $twig;
     
     public function __construct() {
         global $twig;
+        global $entityManager;
+        
         $this->twig = $twig;
+        $this->entityManager = $entityManager;
     }
     
     public function index() {
-        // fake data
-        $user = new User("jeanne_dupont@ephedra.fr", "*****");
-        $client = new Client("Dupont", "Jeanne", "6 rue du Lapin Vert", "Strasbourg", "67300");
+        // set layout variables
+        parent::index($request, $response, $args);
+        
+        $user = $this->logged_user;
+        $client = $user->getClient();
         
         // to compute with database informations
         $nb_orders = 6;
@@ -30,7 +34,9 @@ class AccountController {
             "client" => $client,
             "nb_orders" => $nb_orders,
             "nb_received_orders" => $nb_received_orders,
-            "nb_processed_orders" => $nb_processed_orders
+            "nb_processed_orders" => $nb_processed_orders,
+            "cart_size" => $this->cart_size,
+            "user" => $this->logged_user
         ]);
     }
     
