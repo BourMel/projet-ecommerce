@@ -24,10 +24,6 @@ $twig = new Twig_Environment($loader, array(
 session_cache_limiter(false);
 session_start();
 
-// if (!isset($_SESSION['panier'])) {
-//   $_SESSION['panier'] = [];
-// }
-
 // SLIM INIT
 $app = require_once './config/bootstrap.php';
 $app->run();

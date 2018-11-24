@@ -21,6 +21,9 @@
                 <li class="list-inline-item">
                     <a href="/panier">
                         <img src="../assets/icons/buy.svg" alt="Panier" title="Panier">
+                        {% if cart != null %}
+                            <span class="cart_content">{{cart | length}}</span>
+                        {% endif %}
                     </a>
                 </li>
                 <li class="list-inline-item">
@@ -69,14 +72,15 @@
         </footer>
 
         <script
-              src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-              integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-              crossorigin="anonymous"></script>
+			  src="https://code.jquery.com/jquery-3.3.1.js"
+			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			  crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
         <script src="../assets/javascript/utils.js"></script>
         <script src="../assets/javascript/form_validator.js"></script>
         <script src="../assets/javascript/display_to_form.js"></script>
         <script src="../assets/javascript/plus_minus.js"></script>
+        <script src="../assets/javascript/handle_cart.js"></script>
     </body>
 </html>

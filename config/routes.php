@@ -12,6 +12,33 @@ $app->get('/catalogue', 'App\controllers\ShopController:index');
 
 $app->get('/produit/{id}', 'App\controllers\ProductController:index');
 
+$app->post('/cart', 'App\controllers\CartController:addProduct');
+
+
+// $app->post('/cart', function () use ($app) {
+//     $req = $app->request();
+//     print_r($req->params());
+// });
+
+// $app->post('/cart', function () {
+//   $data = $request->getParams();
+   
+// //   $data["article_id"]
+   
+// //   var_dump($request);
+// //   var_dump($data);
+// //   echo json_encode($data['articleId']);
+   
+//   return new App\controllers\CartController->addProduct($data["article_id"]);
+// });
+
+// var_dump( $app->request() );
+
+// $app->post('/cart', function() use ($app) {
+//       $request = $app->request();
+//       echo json_encode($request->post('articleId'));
+// });
+
 // $app->get('/hello/{name}', function (Request $request, Response $response) {
 //     $name = $request->getAttribute('name');
 //     $response->getBody()->write("Hello, $name");

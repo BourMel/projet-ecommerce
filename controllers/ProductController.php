@@ -22,7 +22,10 @@ class ProductController {
         $article = $this->entityManager->find("App\Models\Article", (int)$args["id"]);
         
         $template = $this->twig->load("product.twig");
-        echo $template->render(["article" => $article]);
+        echo $template->render([
+            "article" => $article,
+            "cart" => $_SESSION["cart"]
+        ]);
     }
     
 }

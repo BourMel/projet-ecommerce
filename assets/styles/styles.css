@@ -38,9 +38,33 @@ h1 a, h1 a:hover, h1 a:focus, h1 a:visited {
     list-style-type: none;
 }
 
+.main-menu li {
+    /* position of .cart_content */
+    position: relative;
+}
+
 .main-menu img {
     width: 35px;
     height: 35px;
+}
+
+/* cart items count */
+.main-menu .cart_content {
+    /* circle */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 20px;
+    height:20px;
+    background-color: white;
+    border: 2px solid #aec2bb;
+    border-radius: 50%;
+    /*number*/
+    color: #aec2bb;
+    text-align: center;
+    line-height: 15px;
+    font-weight: 800;
+    font-size: 0.9em;
 }
 
 .main-menu .catalogue {
