@@ -10,7 +10,7 @@ $app->get('/catalogue', 'App\controllers\ShopController:index');
 
 $app->get('/produit/{id}', 'App\controllers\ProductController:index');
 
-$app->get('/connexion', 'App\controllers\ConnectionController:index');
+$app->get('/connexion', 'App\controllers\ConnectionController:index')->setName('login');;
 // $app->post('/connexion', 'App\controllers\ConnectionController:index');
 $app->post('/inscription', 'App\controllers\ConnectionController:register');
 

@@ -3,13 +3,10 @@
 namespace App\Controllers;
 use App\Models\Article as Article; 
 
-global $twig;
-global $entityManager;
 
-class CartController {
+class CartController extends BaseController {
     
     private $twig;
-    private $entityManager;
     
     public function __construct() {
         global $twig;
@@ -20,6 +17,9 @@ class CartController {
     }
     
     public function index() {
+        // set layout variables
+        parent::index($request, $response, $args);
+        
         // build an array which contains, in the same order as the session array,
         // the articles from the database
         $articles = [];
@@ -38,7 +38,9 @@ class CartController {
             "cart_articles" => $articles,
             // we keep the session informations since we need the quantities
             "cart_quantities" => $_SESSION["cart"],
-            "total" => $total_price
+            "total" => $total_price,
+            "cart_size" => $this->cart_size,
+            "user" => $this->logged_user
         ]);
     }
     

@@ -21,8 +21,12 @@ class ConnectionController {
     }
     
     public function index() {
+        // set layout variables
+        parent::index($request, $response, $args);
+        
+        
         $template = $this->twig->load("connection.twig");
-        echo $template->render([]);
+        echo $template->render(["cart_size" => $this->cart_size]);
     }
     
     /**
