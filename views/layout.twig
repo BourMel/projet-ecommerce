@@ -27,10 +27,16 @@
                     </a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="/connexion">
-                        <img src="../assets/icons/account.svg" alt="Connexion" title="Connexion">
-                        {#<img src="../assets/icons/account.svg" alt="Compte client" title="Compte client">#}
-                    </a>
+                    {% if user != null %}
+                        <a href="/connexion">
+                            <img src="../assets/icons/account.svg" alt="Compte Client" title="Compte Client">
+                            <span class="logged_in"></span>
+                        </a>
+                    {% else %}
+                        <a href="/connexion">
+                            <img src="../assets/icons/account.svg" alt="Connexion" title="Connexion">
+                        </a>
+                    {% endif %}
                 </li>
             </ul>
         </nav>

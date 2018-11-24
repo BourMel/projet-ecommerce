@@ -49,7 +49,7 @@ class ConnectionController {
         // everything went fine, let's register the user
         $user = new User;
         $user->setEmail($params["email"]);
-        $user->setPassword(crypt($params["password"]));
+        $user->setPassword(password_hash($params["password"], PASSWORD_DEFAULT));
         $this->entityManager->persist($user);
 
         // and the client
@@ -62,8 +62,11 @@ class ConnectionController {
         $client->setUser($user);
         $this->entityManager->persist($client);
 
-        // save and redirect user to home page
+        // save, connect and redirect user to home page
         $this->entityManager->flush();
+        
+        $_SESSION['user'] = $user->id;
+        
         return $response->withRedirect('/'); 
     }
     
