@@ -43,7 +43,7 @@ class CartController {
     }
     
     /**
-     * Add a product to the cart, using PHP session 
+     * Add a product to cart, using PHP session 
      */
     public function addProduct($request, $response, $args) {
         if (!isset($_SESSION['cart'])) {
@@ -59,6 +59,29 @@ class CartController {
             
         } else {
             $_SESSION["cart"][$newArticle] = 1;
+        }
+    }
+    
+    /**
+     * Remove a product from cart, using PHP session 
+     */
+    public function removeProduct($request, $response, $args) {
+        if (!isset($_SESSION['cart'])) {
+          return;
+        }
+        
+        $articleToRemove = (int)$args["article_id"];
+        
+        if(!array_key_exists($articleToRemove, $_SESSION['cart'])) {
+            return;
+        }
+        
+        // if there is more than one article, we only decrement quantity
+        if($_SESSION["cart"][$articleToRemove] > 1) {
+            $_SESSION["cart"][$articleToRemove]--;
+            
+        } else {
+            unset($_SESSION["cart"][$articleToRemove]);
         }
     }
     

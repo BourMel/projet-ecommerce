@@ -32,6 +32,12 @@ document.addEventListener('DOMContentLoaded', function() {
        for(var i=0; i<plus.length; i++) {
        
            plus[i].addEventListener("click", function() {
+              
+               // send ajax request
+               if(this.parentNode.hasAttribute("data-article")) {
+                  addQuantityToProductCart(this.parentNode.getAttribute("data-article"));
+               }
+              
                // change the quantity
                var quantity = parseInt(this.parentNode.querySelector(".quantity").innerHTML);
                this.parentNode.querySelector(".quantity").innerHTML = quantity +1;
@@ -53,6 +59,12 @@ document.addEventListener('DOMContentLoaded', function() {
            })
            
            minus[i].addEventListener("click", function() {
+              
+               // send ajax request
+               if(this.parentNode.hasAttribute("data-article")) {
+                  removeQuantityToProductCart(this.parentNode.getAttribute("data-article"));
+               }
+              
                var quantity = parseInt(this.parentNode.querySelector(".quantity").innerHTML);
                
                if(quantity > 0) {

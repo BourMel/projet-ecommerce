@@ -19,7 +19,8 @@ class ProductController {
     }
     
     public function index($request, $response, $args) {
-        $article = $this->entityManager->find("App\Models\Article", (int)$args["id"]);
+        $article_id = (int)$args["id"];
+        $article = $this->entityManager->find("App\Models\Article", $article_id);
 
         // count articles in cart
         $cart_size = 0;

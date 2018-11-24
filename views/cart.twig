@@ -18,7 +18,7 @@
         <div class="box col-lg-6 col-sm-12">
             {% for article in cart_articles %}
                 <div class="info d-flex">
-                    <span>
+                    <span data-article="{{ article.id }}">
                         <h3>{{ article.name }} x
                             <span class="quantity">
                                 {{ cart_quantities[article.id] }}
