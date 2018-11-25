@@ -19,6 +19,10 @@
                 <label for="password">Mot de passe</label>
                 <input id="password" name="password" type="password" placeholder="Mot de passe">
 
+                {% if error != null %}
+                    <label class="error">{{ error }}</label>
+                {% endif %}
+
                 <button type="submit">Connexion</button>
             </form>
         </div>

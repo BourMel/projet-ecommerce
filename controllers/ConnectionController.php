@@ -1,23 +1,28 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\User as User;
 use App\Models\Client as Client;
 
 global $twig;
 global $entityManager;
+global $app;
 
 class ConnectionController extends BaseController {
     
     private $twig;
     private $entityManager;
+    private $app;
     
     public function __construct() {
         global $twig;
         global $entityManager;
+        global $app;
         
         $this->twig = $twig;
         $this->entityManager = $entityManager;
+        $this->container = $app->getContainer();
     }
     
     public function index($request, $response, $args) {
@@ -25,7 +30,10 @@ class ConnectionController extends BaseController {
         parent::index($request, $response, $args);
         
         $template = $this->twig->load("connection.twig");
-        echo $template->render(["cart_size" => $this->cart_size]);
+        echo $template->render([
+            "cart_size" => $this->cart_size,
+            "error" => $request->getParams()["error"]
+        ]);
     }
     
     /**
@@ -43,7 +51,8 @@ class ConnectionController extends BaseController {
         
         // user doesn't exist
         if($user == null) {
-            return;
+            $url = $this->container->router->pathFor('login', [], ['error' => "Ce compte n'existe pas."]);
+            return $response->withStatus(302)->withHeader('Location', $url);
         } 
         
         $user = $user[0];
@@ -54,7 +63,9 @@ class ConnectionController extends BaseController {
             return $response->withRedirect('/'); 
         }
         
-        return $response->withRedirect('/connexion'); 
+        // password is wrong
+        $url = $this->container->router->pathFor('login', [], ['error' => "Essayez de retrouver le bon mot de passe ;)"]);
+        return $response->withStatus(302)->withHeader('Location', $url);
     }
     
     /**
@@ -106,7 +117,6 @@ class ConnectionController extends BaseController {
      */
     public function logout($request, $response, $args) {
         unset($_SESSION['user']);
-        echo "yeay";
         return $response->withRedirect('/'); 
     }
     
