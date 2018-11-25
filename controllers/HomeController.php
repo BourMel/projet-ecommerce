@@ -26,11 +26,15 @@ class HomeController extends BaseController {
         // set layout variables
         parent::index($request, $response, $args);
 
-        // PAGE
+        // order the articles by the number of orders containing them
         $articles = $this->queryBuilder
+            ->select('a')
             ->from('App\Models\Article', 'a')
-            ->orderBy('a.name', 'ASC')
+            ->groupBy('a.id')
+            ->leftJoin('a.orders', 'o')
+            ->leftJoin('a.images', 'i')
             ->setMaxResults(3)
+            ->orderBy('count(a.id)', 'DESC')
             ->getQuery()
             ->getResult();
             
