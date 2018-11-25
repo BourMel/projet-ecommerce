@@ -69,4 +69,21 @@ $(document).ready(function() {
         });
    });
    
+   // button to command the order
+   var commandButton = $('.cart button');
+   
+   // send command to backend
+   commandButton.on("click", function(e) {
+        e.preventDefault();
+        window.location = "/achat";
+        let request = $.ajax("/achat", {
+            type: "post"
+        })
+        // .done(function(response, textStatus, jqXHR) {
+        //     location.reload();
+        // })
+        // .fail(function(jqXHR, textStatus, errorThrown) {
+        //     console.log(errorThrown);
+        // });
+   });
 });

@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\Article as Article; 
 
+use App\Models\Article as Article; 
+use App\Models\Order as Order; 
 
 class CartController extends BaseController {
     
@@ -42,6 +43,36 @@ class CartController extends BaseController {
             "cart_size" => $this->cart_size,
             "user" => $this->logged_user
         ]);
+    }
+    
+    /**
+     * Allow the user to create an order (buy its cart content) 
+     */
+    public function buy($request, $response, $args) {
+        // set layout variables
+        parent::index($request, $response, $args);
+        
+        $order = new Order;
+        
+        $client = $this->logged_user->getClient();
+        $order->setClient($client);
+        
+        $order->setDate(new \DateTime());
+        
+        // add all cart articles into the new order
+        foreach($_SESSION['cart'] as $article_id => $quantity) {
+            $article = $this->entityManager->find("App\Models\Article", $article_id);
+            
+            $order->getArticles()->add($article);
+            $article->getOrders()->add($order);
+        }
+        
+        $this->entityManager->persist($order);
+        $this->entityManager->flush();
+        
+        // after order, erase cart and redirect to home page
+        unset($_SESSION['cart']);
+        return $response->withRedirect('/'); 
     }
     
     /**

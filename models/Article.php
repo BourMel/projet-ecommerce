@@ -25,29 +25,21 @@ class Article {
     /** @ManyToMany(targetEntity="Order", mappedBy="articles") **/
     private $orders;
       
-    public function __construct($name, $price, $description, $category_id)    
+    public function __construct()    
     {    
-        $this->id = 0;
-        $this->name = $name;
-        $this->price = $price;
-        $this->description = $description;
-        $this->category_id = $category_id;
+        $this->orders = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
      * All getters
      */
     public function getId() { return $this->id; }
-    
     public function getName() { return $this->name; }
-    
     public function getPrice() { return $this->price; }
-    
     public function getDescription() { return $this->description; }
-    
     public function getCategory() { return $this->category; }
-    
     public function getImages() { return $this->images; }
+    public function getOrders() { return $this->orders; }
     
     /**
      * All setters

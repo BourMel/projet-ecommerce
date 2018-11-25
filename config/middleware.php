@@ -20,7 +20,7 @@ $loggedInMiddleware = function ($request, $response, $next) {
     return $response;
 };
 
-// if user is logged out, no access to account page
+// if user is logged out, no access to account or buy page
 $loggedOutMiddleware = function ($request, $response, $next) {
     $route = $request->getAttribute('route');
     $routeName = $route->getName();
@@ -28,7 +28,7 @@ $loggedOutMiddleware = function ($request, $response, $next) {
     $methods = $route->getMethods();
     $arguments = $route->getArguments();
 
-    $forbiddenRoutes = array('account');
+    $forbiddenRoutes = array('account', 'buy');
 
     if (!isset($_SESSION['user']) && in_array($routeName, $forbiddenRoutes)) {
         $response = $response->withRedirect('/');
