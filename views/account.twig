@@ -15,7 +15,7 @@
                 <h4>Compte</h4>
 
                 <div id="account_infos" class="display_and_form">
-                    <span id="mail" data-label="Adresse email">{{ user.email }}</span>
+                    <span id="email" data-label="Adresse email">{{ user.email }}</span>
                     <span id="password" data-label="Mot de passe (obligatoire)" data-type="password">************</span>
                     <span id="new_password" data-label="Nouveau mot de passe (option)" data-validate="false" data-type="password"></span>
                 </div>
@@ -25,8 +25,8 @@
                 <h4>Adresse</h4>
 
                 <div id="client_infos" class="display_and_form">
-                    <span id="first_name" class="inline" data-label="Prénom">{{ client.firstname }}</span>
-                    <span id="last_name" data-label="Nom">{{ client.lastname }}</span>
+                    <span id="firstname" class="inline" data-label="Prénom">{{ client.firstname }}</span>
+                    <span id="lastname" data-label="Nom">{{ client.lastname }}</span>
 
                     <span id="address" data-label="Adresse">{{ client.address }}</span>
 
@@ -44,9 +44,12 @@
                     <span id="received">{{ nb_received_orders }} commandes réceptionnées</span>
                 </div>
             </div>
-
         </div>
-
+        
+        {% if error != null %}
+            <label class="backend_error">{{ error }}</label>
+        {% endif %}
+        
         <button class="set_to_form">Modifier</button>
     </div>
 

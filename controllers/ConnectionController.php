@@ -85,7 +85,7 @@ class ConnectionController extends BaseController {
         if(!filter_var($request->getParams()["email"], FILTER_VALIDATE_EMAIL)) {
             return;
         }
-        if($params["password"] != $params["password_conf"]) {
+        if(($params["password"] != $params["password_conf"]) || strlen($params["new_password"] < 8)) {
             return;
         }
         

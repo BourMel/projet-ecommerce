@@ -474,9 +474,15 @@ form .invalid {
     display: block;
 }
 
+.account_page .backend_error {
+    /*fix margin auto*/
+    margin: 30px 35vw;
+    color: #BC3201;
+}
+
 .account_page button {
     /*fix margin auto*/
-    margin: 60px 40vw;
+    margin: 20px 40vw;
 }
 
 /*******/

@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
            // creates a form inside the simple parent div
            var form = document.createElement("form");
            form.setAttribute('id', "parent_form");
+           form.setAttribute('method', "post");
+           form.setAttribute('action', "/compte");
            form.innerHTML = parentDiv[0].innerHTML;
            // we remove old content
            parentDiv[0].innerHTML = "";
