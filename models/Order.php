@@ -1,10 +1,27 @@
 <?php
 
-class Order {  
-    public $id;  
+namespace App\Models;
+
+/**
+ * @Entity @Table(name="orders")
+ **/
+
+class Order {
+    /** @Id @Column(type="integer") @GeneratedValue **/
+    public $id;
+    /** @Column(type="date") **/
     public $date;
-    public $client_id;
-      
+    /**
+     * @ManyToOne(targetEntity="Client", inversedBy="orders")
+     * @JoinColumn(name="client_id", referencedColumnName="id")
+     */
+    public $client;
+    /**
+     * @ManyToMany(targetEntity="Article", inversedBy="orders")
+     * @JoinTable(name="article_order")
+     */
+    public $articles;
+
     public function __construct($date, $client_id)    
     {    
         $this->id = 0;

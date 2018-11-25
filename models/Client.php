@@ -24,6 +24,8 @@ class Client {
      * @JoinColumn(name="user_id", referencedColumnName="id")
      */
     public $user;
+    /** @OneToMany(targetEntity="Order", mappedBy="client") **/
+    public $orders;
       
     public function __construct() { }
     

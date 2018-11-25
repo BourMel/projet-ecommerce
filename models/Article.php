@@ -15,10 +15,15 @@ class Article {
     private $price;  
     /** @Column(type="text") **/
     private $description;
-    /** @Column(type="integer") **/
-    private $category_id;
+    /**
+     * @ManyToOne(targetEntity="Category", inversedBy="articles")
+     * @JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    public $category;
     /** @OneToMany(targetEntity="ArticleImage", mappedBy="article") **/
     private $images;
+    /** @ManyToMany(targetEntity="Order", mappedBy="articles") **/
+    private $orders;
       
     public function __construct($name, $price, $description, $category_id)    
     {    
@@ -40,14 +45,9 @@ class Article {
     
     public function getDescription() { return $this->description; }
     
-    public function getCategory() {
-        // @TODO
-        return $this->category_id;
-    }
+    public function getCategory() { return $this->category; }
     
-    public function getImages() {
-        return $this->images;
-    }
+    public function getImages() { return $this->images; }
     
     /**
      * All setters

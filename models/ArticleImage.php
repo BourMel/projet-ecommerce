@@ -14,7 +14,7 @@ class ArticleImage {
      * @ManyToOne(targetEntity="Article", inversedBy="images")
      * @JoinColumn(name="article_id", referencedColumnName="id")
      */
-    public $article;
+    private $article;
       
     public function __construct($name, $article_id)    
     {    

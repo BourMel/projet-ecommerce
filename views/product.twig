@@ -18,8 +18,7 @@
         <div class="col-lg-6 col-sm-12">
             <h3>
                 {{ article.name }}
-                {# there will be a method on article to fetch the category name #}
-                <span class="category">Catégorie</span>
+                <span class="category">{{ article.category.name }}</span>
             </h3>
 
             <span class="price">{{ article.price|number_format(2, ',', ' ') }} €</span>
