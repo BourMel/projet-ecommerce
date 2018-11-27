@@ -32,7 +32,8 @@ class ConnectionController extends BaseController {
         $template = $this->twig->load("connection.twig");
         echo $template->render([
             "cart_size" => $this->cart_size,
-            "error" => $request->getParams()["error"]
+            "error" => $request->getParams()["error"],
+            "register_error" => $request->getParams()["register_error"]
         ]);
     }
     
@@ -78,15 +79,23 @@ class ConnectionController extends BaseController {
         if(empty($params["email"]) || empty($params["password"]) || empty($params["password_conf"])
             || empty($params["lastname"]) || empty($params["firstname"]) || empty($params["address"])
             || empty($params["cp"]) || empty($params["city"])) {
-            return;
+
+            $url = $this->container->router->pathFor('login', [], ['register_error' => "Vous n'avez pas rempli tous les champs..."]);
+            return $response->withStatus(302)->withHeader('Location', $url);
         }
         
         // validate all params
         if(!filter_var($request->getParams()["email"], FILTER_VALIDATE_EMAIL)) {
-            return;
+            $url = $this->container->router->pathFor('login', [], ['register_error' => "Votre adresse email ne semble pas valide"]);
+            return $response->withStatus(302)->withHeader('Location', $url);
         }
-        if(($params["password"] != $params["password_conf"]) || strlen($params["new_password"] < 8)) {
-            return;
+        if($params["password"] != $params["password_conf"]) {
+            $url = $this->container->router->pathFor('login', [], ['register_error' => "Votre mot de passe et sa confirmation ne correspondent pas"]);
+            return $response->withStatus(302)->withHeader('Location', $url);
+        }
+        if(strlen($params["password"]) < 8) {
+            $url = $this->container->router->pathFor('login', [], ['register_error' => "Votre mot de passe doit faire 8 caractères"]);
+            return $response->withStatus(302)->withHeader('Location', $url);
         }
         
         // everything went fine, let's register the user

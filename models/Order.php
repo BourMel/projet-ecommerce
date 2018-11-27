@@ -8,19 +8,16 @@ namespace App\Models;
 
 class Order {
     /** @Id @Column(type="integer") @GeneratedValue **/
-    public $id;
+    private $id;
     /** @Column(type="date") **/
-    public $date;
+    private $date;
     /**
      * @ManyToOne(targetEntity="Client", inversedBy="orders")
      * @JoinColumn(name="client_id", referencedColumnName="id")
      */
-    public $client;
-    /**
-     * @ManyToMany(targetEntity="Article", inversedBy="orders")
-     * @JoinTable(name="article_order")
-     */
-    public $articles;
+    private $client;
+    /** @OneToMany(targetEntity="ArticleOrder", mappedBy="order") **/
+    private $articles;
 
     public function __construct() {
         $this->articles = new \Doctrine\Common\Collections\ArrayCollection();

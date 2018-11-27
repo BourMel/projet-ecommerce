@@ -62,6 +62,10 @@
                     <label for="city">Ville</label>
                     <input id="city" name="city" class="required" type="text" placeholder="Ville">
                 </fieldset>
+                
+                {% if register_error != null %}
+                    <label class="error">{{ register_error }}</label>
+                {% endif %}
 
                 <button type="submit">Inscription</button>
             </form>

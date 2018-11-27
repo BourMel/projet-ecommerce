@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Article as Article; 
+use App\Models\ArticleOrder as ArticleOrder; 
 use App\Models\Order as Order; 
 
 class CartController extends BaseController {
@@ -59,15 +60,21 @@ class CartController extends BaseController {
         
         $order->setDate(new \DateTime());
         
+        $this->entityManager->persist($order);
+        
         // add all cart articles into the new order
         foreach($_SESSION['cart'] as $article_id => $quantity) {
             $article = $this->entityManager->find("App\Models\Article", $article_id);
             
-            $order->getArticles()->add($article);
-            $article->getOrders()->add($order);
+            // relation table
+            $article_order = new ArticleOrder();
+            $article_order->setArticle($article);
+            $article_order->setOrder($order);
+            $article_order->setQuantity($quantity);
+            
+            $this->entityManager->persist($article_order);
         }
         
-        $this->entityManager->persist($order);
         $this->entityManager->flush();
         
         // after order, erase cart and redirect to home page

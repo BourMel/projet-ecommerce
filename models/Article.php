@@ -19,10 +19,10 @@ class Article {
      * @ManyToOne(targetEntity="Category", inversedBy="articles")
      * @JoinColumn(name="category_id", referencedColumnName="id")
      */
-    public $category;
+    private $category;
     /** @OneToMany(targetEntity="ArticleImage", mappedBy="article") **/
     private $images;
-    /** @ManyToMany(targetEntity="Order", mappedBy="articles") **/
+    /** @OneToMany(targetEntity="ArticleOrder", mappedBy="article") **/
     private $orders;
       
     public function __construct()    
@@ -45,10 +45,7 @@ class Article {
      * All setters
      */
     public function setName($name) { $this->name = $name; }
-    
     public function setPrice($price) { $this->price = $price; }
-    
     public function setDescription($description) { $this->description = $description; }
-    
     public function setCategory($category) { $this->category_id = $category; }
 } 
