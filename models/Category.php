@@ -8,11 +8,11 @@ namespace App\Models;
 
 class Category { 
     /** @Id @Column(type="integer") @GeneratedValue **/
-    public $id;  
+    private $id;  
     /** @Column(type="string") **/
-    public $name;
+    private $name;
     /** @OneToMany(targetEntity="Article", mappedBy="category") **/
-    public $articles;
+    private $articles;
       
     public function __construct($name)    
     {    

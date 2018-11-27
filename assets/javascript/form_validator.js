@@ -97,10 +97,11 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("password_conf").addEventListener("keyup", function() {
             if((this.value.length >= 8) && (this.value == password.value)) {
                 this.className = "valid";
+                addErrorMessage("password_conf", "");
                 
             } else {
                 this.className = "invalid";
-                addErrorMessage("password_conf", "Les mots de passe ne correspondent pas")
+                addErrorMessage("password_conf", "Les mots de passe ne correspondent pas");
             }
         });
          

@@ -50,6 +50,7 @@ class CartController extends BaseController {
      * Allow the user to create an order (buy its cart content) 
      */
     public function buy($request, $response, $args) {
+        echo "nope";
         // set layout variables
         parent::index($request, $response, $args);
         

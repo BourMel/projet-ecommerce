@@ -76,9 +76,9 @@ $(document).ready(function() {
    commandButton.on("click", function(e) {
         e.preventDefault();
         window.location = "/achat";
-        let request = $.ajax("/achat", {
-            type: "post"
-        })
+        // let request = $.ajax("/achat", {
+        //     type: "post"
+        // })
         // .done(function(response, textStatus, jqXHR) {
         //     location.reload();
         // })

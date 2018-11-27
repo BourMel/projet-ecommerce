@@ -8,11 +8,11 @@ namespace App\Models;
 
 class User {
     /** @Id @Column(type="integer") @GeneratedValue **/
-    public $id;
+    private $id;
     /** @Column(type="string") **/
-    public $email;
+    private $email;
     /** @Column(type="string") **/
-    public $password;
+    private $password;
     /** @OneToOne(targetEntity="Client", mappedBy="user") **/
     private $client;
     

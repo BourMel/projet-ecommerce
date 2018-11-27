@@ -8,24 +8,24 @@ namespace App\Models;
 
 class Client {
     /** @Id @Column(type="integer") @GeneratedValue **/
-    public $id;
+    private $id;
     /** @Column(type="string") **/
-    public $lastname;
+    private $lastname;
     /** @Column(type="string") **/
-    public $firstname;
+    private $firstname;
     /** @Column(type="string") **/
-    public $address;
+    private $address;
     /** @Column(type="string") **/
-    public $city;
+    private $city;
     /** @Column(type="string") **/
-    public $postal_code;
+    private $postal_code;
     /**
      * @OneToOne(targetEntity="User", inversedBy="client")
      * @JoinColumn(name="user_id", referencedColumnName="id")
      */
-    public $user;
+    private $user;
     /** @OneToMany(targetEntity="Order", mappedBy="client") **/
-    public $orders;
+    private $orders;
       
     public function __construct() { }
     
@@ -39,6 +39,7 @@ class Client {
     public function getCity() { return $this->city; }
     public function getPostalCode() { return $this->postal_code; }
     public function getUser() { return $this->user; }
+    public function getOrders() { return $this->orders; }
     
     /**
      * All setters

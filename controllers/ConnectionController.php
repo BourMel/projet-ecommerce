@@ -59,8 +59,8 @@ class ConnectionController extends BaseController {
         $user = $user[0];
 
         // authentification
-        if(password_verify($params["password"], $user->password)) {
-            $_SESSION['user'] = $user->id;
+        if(password_verify($params["password"], $user->getPassword())) {
+            $_SESSION['user'] = $user->getId();
             return $response->withRedirect('/'); 
         }
         
@@ -117,7 +117,7 @@ class ConnectionController extends BaseController {
         // save, connect and redirect user to home page
         $this->entityManager->flush();
         
-        $_SESSION['user'] = $user->id;
+        $_SESSION['user'] = $user->getId();
         return $response->withRedirect('/'); 
     }
     

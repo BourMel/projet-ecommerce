@@ -30,12 +30,12 @@ class AccountController extends BaseController {
         $client = $user->getClient();
         
         // gives a summary of recent commands
-        $nb_orders = count($client->orders);
+        $nb_orders = count($client->getOrders());
         
         $nb_received_orders = 0;
         $nb_processed_orders = 0;
         
-        foreach($client->orders as $order) {
+        foreach($client->getOrders() as $order) {
             $now = new \DateTime();
             $order_date = $order->getDate();
             $interval = $order_date->diff($now)->days;
@@ -80,7 +80,7 @@ class AccountController extends BaseController {
         }
         
         // check password matches the logged in user's
-        if(!password_verify($params["password"], $this->logged_user->password)) {
+        if(!password_verify($params["password"], $this->logged_user->getPassword())) {
             $url = $this->container->router->pathFor('account', [], ['error' => "Mauvais mot de passe..."]);
             return $response->withStatus(302)->withHeader('Location', $url);
         }

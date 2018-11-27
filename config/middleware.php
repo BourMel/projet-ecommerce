@@ -31,7 +31,7 @@ $loggedOutMiddleware = function ($request, $response, $next) {
     $forbiddenRoutes = array('account', 'buy');
 
     if (!isset($_SESSION['user']) && in_array($routeName, $forbiddenRoutes)) {
-        $response = $response->withRedirect('/');
+        $response = $response->withRedirect('/connexion');
         
     } else {
         $response = $next($request, $response);

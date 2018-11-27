@@ -7,19 +7,27 @@ namespace App\Models;
  */
 class ArticleImage {  
     /** @Id @Column(type="integer") @GeneratedValue **/
-    public $id;  
+    private $id;  
     /** @Column(type="string") **/
-    public $name;  
+    private $name;  
     /**
      * @ManyToOne(targetEntity="Article", inversedBy="images")
      * @JoinColumn(name="article_id", referencedColumnName="id")
      */
     private $article;
       
-    public function __construct($name, $article_id)    
-    {    
-        $this->id = 0;
-        $this->name = $name;
-        $this->article_id = $article_id;
-    }
+    public function __construct() {}
+    
+    /**
+     * All getters
+     */
+    public function getId() { return $this->id; }
+    public function getName() { return $this->name; }
+    public function getArticle() { return $this->article; }
+     
+    /**
+     * All setters
+     */
+    public function setName($name) { $this->name = $name; }
+    public function setArticle($article) { $this->articles = $article; }
 } 
