@@ -17,7 +17,7 @@
                 <label for="search">Rechercher un produit</label>
                 
                 <div>
-                    <input id="search" type="text">
+                    <input id="search" name="search" type="text">
                     <button type="submit">Filtrer</button>
                 </div>
             </fieldset>
@@ -30,7 +30,7 @@
 
                 <div class="group">
                     <input type="radio" name="price" id="less_30" value="less_30">
-                    <label for="less_30">Moins de 10€</label>
+                    <label for="less_30">Moins de 30€</label>
                 </div>
 
                 <div class="group">
@@ -40,18 +40,15 @@
             </fieldset>
 
             <fieldset>
+                {% for category in categories %}
+                    <div class="group">
+                        <input type="radio" name="plant" id="{{ category.id }}" value="{{ category.id }}">
+                        <label for="{{ category.id }}">{{ category.name }}</label>
+                    </div>
+                {% endfor %}
+                
                 <div class="group">
-                    <input type="radio" name="plant" id="in" value="in">
-                    <label for="in">Plantes d'intérieur</label>
-                </div>
-
-                <div class="group">
-                    <input type="radio" id="out" name="plant" value="out">
-                    <label for="out">Plantes d'extérieur</label>
-                </div>
-
-                <div class="group">
-                    <input type="radio" name="plant" id="in_out" value="in_out" checked="checked">
+                    <input type="radio" name="plant" id="in_out" value="all" checked="checked">
                     <label for="in_out">Toutes</label>
                 </div>
             </fieldset>
