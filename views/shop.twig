@@ -56,17 +56,36 @@
         </form>
 
         <div class="content d-flex justify-content-between">
-            {% for article in articles %}
-                <a href="/produit/{{ article.id }}" class="item">
-                    {% if article.images()[0] != null %}
-                        <img src="../assets/images/{{ article.images()[0].name }}.jpg">
-                    {% endif %}
-                    <h3>{{ article.name }}</h3>
-                    <span class="price">{{ article.price|number_format(2, ',', ' ') }} €</span>
-                </a>
-            {% endfor %}
+            
+            {{ article | length }}
+            
+            {#{% if article | length > 0 %}#}
+            {#    {% for article in articles %}#}
+            {#        <a href="/produit/{{ article.id }}" class="item">#}
+            {#            {% if article.images()[0] != null %}#}
+            {#                <img src="../assets/images/{{ article.images()[0].name }}.jpg">#}
+            {#            {% endif %}#}
+            {#            <h3>{{ article.name }}</h3>#}
+            {#            <span class="price">{{ article.price|number_format(2, ',', ' ') }} €</span>#}
+            {#        </a>#}
+            {#    {% endfor %}#}
+            
+            {#{% else %}    #}
+            {#    Aucun article ne semble correspondre à votre recherche... :(#}
+            {#{% endif %}#}
+        </div>
+        
+        <div class="paginator">
+            {% if nb_pages > 1 %}
+                {% for i in 1..nb_pages %}
+                    {# we keep all current parameters #}
+                    <a href="/catalogue?page={{ i }}&search={{ param_search }}&price={{ param_price }}&plant={{ param_plant }}">{{ i }}</a>
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
+    
+
 
 </main>
 

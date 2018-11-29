@@ -34,6 +34,7 @@ class ShopController extends BaseController {
         $search = $params["search"]; 
         $price = $params["price"];
         $category = $params["plant"];
+        $current_page = $params["page"] == null ? 1 : $params["page"];
         
         $result_per_page = 6;
         
@@ -70,17 +71,17 @@ class ShopController extends BaseController {
                 ->setParameter("category", $category);
         }
     
-        echo $query->getDQL();
         $query = $query->getQuery();
     
         $paginator = new Paginator($query);
 
         $paginator->getQuery()
-        ->setFirstResult($result_per_page * (1 - 1)) // Offset
-        ->setMaxResults($result_per_page); // Limit
+        ->setFirstResult($result_per_page * ($current_page - 1))
+        ->setMaxResults($result_per_page);
     
-      
-        echo count($paginator);
+        $nb_pages = ceil(count($paginator)/$result_per_page);
+        
+        
       
         // get categories
         $categories = $this->entityManager->getRepository("App\Models\Category")->findAll();
@@ -90,7 +91,12 @@ class ShopController extends BaseController {
             "articles" => $paginator,
             "cart_size" => $this->cart_size,
             "user" => $this->logged_user,
-            "categories" => $categories
+            "categories" => $categories,
+            // used for paginator :
+            "nb_pages" => $nb_pages,
+            "param_search" => $search,
+            "param_category" => $category,
+            "param_price" => $price
         ]);
     }
     
