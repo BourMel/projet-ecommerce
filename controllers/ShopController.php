@@ -22,6 +22,7 @@ class ShopController extends BaseController {
         $this->queryBuilder = $entityManager
                             ->getRepository(Article::class)
                             ->createQueryBuilder('Article');
+        $this->results_per_page = 6;
     }
     
     public function index($request, $response, $args) {
@@ -30,19 +31,24 @@ class ShopController extends BaseController {
     
         // get filters    
         $params = $request->getParams();
-    
+
+    var_dump($params);
+
         $search = $params["search"]; 
         $price = $params["price"];
         $category = $params["plant"];
-        $current_page = $params["page"] == null ? 1 : $params["page"];
         
-        $result_per_page = 6;
+        // handle pages
+        $current_page = $params["page"] <= 0 ? 1 : $params["page"];
         
+        $first_result = $current_page*$this->results_per_page - $this->results_per_page;
+        $last_result = $this->results_per_page*$current_page;
+        
+        // start building query according to get parameters
         $query = $this->queryBuilder;
         
         // filter by price
         if(!empty($price) && $price != "all") {
-        
             if($price == "less_30") {
                 $max = 30;
             } else {
@@ -56,7 +62,6 @@ class ShopController extends BaseController {
         
         // filter by keywords (not working)
         if(!empty($search)) {
-            
             $query = $query
                 ->andWhere('Article.name LIKE :search')
                 ->setParameter("search", "%".$search."%");
@@ -64,7 +69,6 @@ class ShopController extends BaseController {
         
         //filter by categories
         if(!empty($category) && $category != "all") {
-
             $query = $query
                 ->leftJoin('Article.category', 'c')
                 ->andWhere('c.id = :category')
@@ -74,14 +78,12 @@ class ShopController extends BaseController {
         $query = $query->getQuery();
     
         $paginator = new Paginator($query);
-
-        $paginator->getQuery()
-        ->setFirstResult($result_per_page * ($current_page - 1))
-        ->setMaxResults($result_per_page);
     
-        $nb_pages = ceil(count($paginator)/$result_per_page);
-        
-        
+        $paginator->getQuery()
+        ->setFirstResult($first_result)
+        ->setMaxResults($last_result);
+    
+        $nb_pages = ceil(count($paginator)/$this->results_per_page);
       
         // get categories
         $categories = $this->entityManager->getRepository("App\Models\Category")->findAll();
@@ -96,7 +98,8 @@ class ShopController extends BaseController {
             "nb_pages" => $nb_pages,
             "param_search" => $search,
             "param_category" => $category,
-            "param_price" => $price
+            "param_price" => $price,
+            "current_page" => $current_page
         ]);
     }
     
