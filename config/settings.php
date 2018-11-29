@@ -2,6 +2,8 @@
 
 $settings = [];
 
+$settings['devMode'] = true;
+
 // slim settings
 $settings['displayErrorDetails'] = true;
 $settings['determineRouteBeforeAppMiddleware'] = true;
@@ -13,7 +15,7 @@ $settings['public'] = $settings['root'] . '/public';
 
 // view settings
 $settings['twig'] = [
-    'path' => $settings['root'] . '/views',
+    'path' => $settings['root'].'/views',
     'cache_enabled' => false,
     'cache_path' =>  $settings['temp'] . '/twig_cache'
 ];
@@ -25,5 +27,6 @@ $settings['db']['password'] = '';
 $settings['db']['database'] = 'ephedra';
 $settings['db']['charset'] = 'utf8';
 $settings['db']['collation'] = 'utf8_unicode_ci';
+$settings['db']['driver'] = 'pdo_mysql';
 
 return $settings;
