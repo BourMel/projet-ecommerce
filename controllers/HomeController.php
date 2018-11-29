@@ -1,33 +1,20 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\Article as Article; 
 
-global $twig;
-global $entityManager;
+use App\Models\Article as Article; 
 
 class HomeController extends BaseController {
     
-    private $twig;
-    private $articleRepo;
-    
     public function __construct() {
-        global $twig;
-        global $entityManager;
-        
-        $this->twig = $twig;
-        $this->entityManager = $entityManager;
-        $this->queryBuilder = $entityManager
-                            ->getRepository(Article::class)
-                            ->createQueryBuilder('articles');
+        parent::__construct();
     }
     
     public function index($request, $response, $arg) {
-        // set layout variables
-        parent::index($request, $response, $args);
 
         // order the articles by the number of orders containing them
-        $articles = $this->queryBuilder
+        $articles = $this->entityManager->getRepository(Article::class)
+            ->createQueryBuilder('articles')
             ->select('a')
             ->from('App\Models\Article', 'a')
             ->groupBy('a.id')

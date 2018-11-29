@@ -62,8 +62,6 @@ $loggedOutMiddleware = function ($request, $response, $next) {
     } else {
         $response = $next($request, $response);
     }
-    
-   
 
     return $response;
 };

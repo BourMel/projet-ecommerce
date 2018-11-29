@@ -1,6 +1,5 @@
 <?php
 
-// source: https://symfonycasts.com/screencast/collections/many-to-many-extra-fields
 /**
  * Since we want to add a field on the article_order relation table ("quantity"),
  * we need to create an extra class and replace our many-to-many relations by
@@ -8,7 +7,6 @@
  */
 
 namespace App\Models;
-
 
 /**
  * @Entity @Table(name="article_order")

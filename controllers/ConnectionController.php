@@ -5,29 +5,13 @@ namespace App\Controllers;
 use App\Models\User as User;
 use App\Models\Client as Client;
 
-global $twig;
-global $entityManager;
-global $app;
-
 class ConnectionController extends BaseController {
     
-    private $twig;
-    private $entityManager;
-    private $app;
-    
     public function __construct() {
-        global $twig;
-        global $entityManager;
-        global $app;
-        
-        $this->twig = $twig;
-        $this->entityManager = $entityManager;
-        $this->container = $app->getContainer();
+       parent::__construct();
     }
     
     public function index($request, $response, $args) {
-        // set layout variables
-        parent::index($request, $response, $args);
         
         $template = $this->twig->load("connection.twig");
         echo $template->render([

@@ -3,38 +3,25 @@
 namespace App\Controllers;
 
 use App\Models\User as User; 
-use App\Models\Client as Client; 
-
-global $app;
+use App\Models\Client as Client;
 
 class AccountController extends BaseController {
     
-    private $twig;
-    private $app;
-    
     public function __construct() {
-        global $twig;
-        global $entityManager;
-        global $app;
-        
-        $this->twig = $twig;
-        $this->entityManager = $entityManager;
-        $this->container = $app->getContainer();
+        parent::__construct();
     }
     
     public function index($request, $response, $args) {
-        // set layout variables
-        parent::index($request, $response, $args);
         
-        $user = $this->logged_user;
-        $client = $user->getClient();
+        // summary of commands
         
-        // gives a summary of recent commands
+        $client = $this->logged_user->getClient();
+    
         $nb_orders = count($client->getOrders());
-        
         $nb_received_orders = 0;
         $nb_processed_orders = 0;
         
+        // determines if the order is received or processed
         foreach($client->getOrders() as $order) {
             $now = new \DateTime();
             $order_date = $order->getDate();
@@ -42,7 +29,7 @@ class AccountController extends BaseController {
             
             // number of days >= 3 : command received
             if($interval >= 3) {
-                $nb_received_orders--;
+                $nb_received_orders++;
                 
             // number of days >= 1 : command processed
             } else if ($interval >= 1) {
@@ -50,9 +37,9 @@ class AccountController extends BaseController {
             }
         }
         
+        
         $template = $this->twig->load("account.twig");
         echo $template->render([
-            "user" => $user,
             "client" => $client,
             "nb_orders" => $nb_orders,
             "nb_received_orders" => $nb_received_orders,
@@ -67,8 +54,6 @@ class AccountController extends BaseController {
      * Allow a user to change his/her informations
      */
     public function edit($request, $response, $args) {
-        // set layout variables
-        parent::index($request, $response, $args);
         
         $params = $request->getParams();
         
@@ -121,5 +106,4 @@ class AccountController extends BaseController {
         $this->entityManager->flush();
         return $response->withRedirect('/compte'); 
     }
-    
 }

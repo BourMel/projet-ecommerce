@@ -8,19 +8,11 @@ use App\Models\Order as Order;
 
 class CartController extends BaseController {
     
-    private $twig;
-    
     public function __construct() {
-        global $twig;
-        global $entityManager;
-        
-        $this->twig = $twig;
-        $this->entityManager = $entityManager;
+        parent::__construct();
     }
     
-    public function index() {
-        // set layout variables
-        parent::index($request, $response, $args);
+    public function index($request, $response, $args) {
         
         // build an array which contains, in the same order as the session array,
         // the articles from the database

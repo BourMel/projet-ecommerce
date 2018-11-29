@@ -1,34 +1,19 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\Article as Article; 
-
 use Doctrine\ORM\Tools\Pagination\Paginator;
-
-global $twig;
-global $entityManager;
 
 class ShopController extends BaseController {
     
-    private $twig;
-    private $articleRepo;
-    
     public function __construct() {
-        global $twig;
-        global $entityManager;
-
-        $this->twig = $twig;
-        $this->entityManager = $entityManager;
-        $this->queryBuilder = $entityManager
-                            ->getRepository(Article::class)
-                            ->createQueryBuilder('Article');
+        parent::__construct();
+        
         $this->results_per_page = 6;
     }
     
     public function index($request, $response, $args) {
-        // set layout variables
-        parent::index($request, $response, $args);
-    
         // get filters    
         $params = $request->getParams();
         
@@ -43,7 +28,7 @@ class ShopController extends BaseController {
         $last_result = $this->results_per_page*$current_page;
         
         // start building query according to get parameters
-        $query = $this->queryBuilder;
+        $query = $this->entityManager->getRepository(Article::class)->createQueryBuilder('Article');
         
         // filter by price
         if(!empty($price) && $price != "all") {
