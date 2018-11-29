@@ -10,6 +10,7 @@
 
     <div class="wrapper">
 
+        {# Filter and search fields #}
         <form action="" method="get" class="d-flex justify-content-between">
             <img src="../assets/icons/search.svg">
 
@@ -17,38 +18,69 @@
                 <label for="search">Rechercher un produit</label>
                 
                 <div>
-                    <input id="search" name="search" type="text">
+                    <input id="search" name="search" type="text" value="{{ param_search }}">
                     <button type="submit">Filtrer</button>
                 </div>
             </fieldset>
 
+            {# Filter on prices ; auto check the selected value #}
             <fieldset>
                 <div class="group">
-                    <input type="radio" name="price" id="less_10" value="less_10">
+                    <input
+                        type="radio"
+                        name="price"
+                        id="less_10"
+                        value="less_10"
+                        {% if param_price == "less_10" %} checked="checked" {% endif %}>
                     <label for="less_10">Moins de 10€</label>
                 </div>
 
                 <div class="group">
-                    <input type="radio" name="price" id="less_30" value="less_30">
+                    <input
+                        type="radio"
+                        name="price"
+                        id="less_30"
+                        value="less_30"
+                        {% if param_price == "less_30" %} checked="checked" {% endif %}>
+                        
                     <label for="less_30">Moins de 30€</label>
                 </div>
 
                 <div class="group">
-                    <input type="radio" id="all" name="price" value="all" checked="checked">
+                    <input
+                        type="radio"
+                        id="all"
+                        name="price"
+                        value="all"
+                        {% if (param_price == null) or (param_price == "all") %} checked="checked" {% endif %}>
+                    
                     <label for="all">Tous</label>
                 </div>
             </fieldset>
 
+            {# filters on categories ; auto check the selected value #}
             <fieldset>
                 {% for category in categories %}
                     <div class="group">
-                        <input type="radio" name="plant" id="{{ category.id }}" value="{{ category.id }}">
+                        <input
+                            type="radio"
+                            name="plant"
+                            id="{{ category.id }}"
+                            value="{{ category.id }}"
+                            {% if param_category == category.id %} checked="checked" {% endif %}>
+                    
                         <label for="{{ category.id }}">{{ category.name }}</label>
                     </div>
+                   
                 {% endfor %}
                 
                 <div class="group">
-                    <input type="radio" name="plant" id="in_out" value="all" checked="checked">
+                    <input
+                        type="radio"
+                        name="plant"
+                        id="in_out"
+                        value="all"
+                        {% if (param_category == null) or (param_category == "all") %} checked="checked" {% endif %}>
                     <label for="in_out">Toutes</label>
                 </div>
             </fieldset>
