@@ -35,8 +35,9 @@ class ShopController extends BaseController {
         $price = $params["price"];
         $category = $params["plant"];
         
+        $result_per_page = 6;
+        
         $query = $this->queryBuilder;
-    
         
         // filter by price
         if(!empty($price) && $price != "all") {
@@ -75,8 +76,8 @@ class ShopController extends BaseController {
         $paginator = new Paginator($query);
 
         $paginator->getQuery()
-        ->setFirstResult(100 * (1 - 1)) // Offset
-        ->setMaxResults(100); // Limit
+        ->setFirstResult($result_per_page * (1 - 1)) // Offset
+        ->setMaxResults($result_per_page); // Limit
     
       
         echo count($paginator);

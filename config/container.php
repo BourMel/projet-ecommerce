@@ -27,7 +27,7 @@ $container['view'] = function (Container $container) {
     ]);
 
     $loader = $twig->getLoader();
-    $loader->addPath($settings['public'], 'public');
+    $loader->addPath($settings['views'], 'views');
 
     // Instantiate and add Slim specific extension
     $router = $container->get('router');
@@ -36,3 +36,12 @@ $container['view'] = function (Container $container) {
 
     return $twig;
 };
+
+
+// 404 page
+$container['notFoundHandler'] = function ($container) {
+    return function ($request, $response) use ($container) {
+        return $container['view']->render($response, '404.html');
+    };
+};
+

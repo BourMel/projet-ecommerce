@@ -22,3 +22,4 @@ $app->delete('/panier/{article_id}', 'App\controllers\CartController:removeProdu
 
 $app->get('/compte', 'App\controllers\AccountController:index')->setName('account');
 $app->post('/compte', 'App\controllers\AccountController:edit')->setName('edit_account');
+
