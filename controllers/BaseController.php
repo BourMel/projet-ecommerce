@@ -20,11 +20,14 @@ class BaseController {
     }
     
     public function index($request, $response, $args) {
+        
         // count articles in cart
-        foreach ($_SESSION['cart'] as $item => $quantity) {
-            $this->cart_size += $quantity;
+        if(isset($_SESSION['cart'])) {
+            foreach ($_SESSION['cart'] as $item => $quantity) {
+                $this->cart_size += $quantity;
+            }
         }
-
+        
         // handle user connection
         if(isset($_SESSION['user'])) {
             $this->logged_user = $this->entityManager->find("App\Models\User", $_SESSION['user']);

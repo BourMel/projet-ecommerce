@@ -36,9 +36,11 @@ class ShopController extends BaseController {
         $category = $params["plant"];
         
         $query = $this->queryBuilder;
+    
         
         // filter by price
         if(!empty($price) && $price != "all") {
+        
             if($price == "less_30") {
                 $max = 30;
             } else {
@@ -52,17 +54,18 @@ class ShopController extends BaseController {
         
         // filter by keywords (not working)
         if(!empty($search)) {
+            
             $query = $query
-                ->where('Article.name LIKE :search')
-                ->setParameter("search", $search);
+                ->andWhere('Article.name LIKE :search')
+                ->setParameter("search", "%".$search."%");
         }
         
         //filter by categories
         if(!empty($category) && $category != "all") {
-            
+
             $query = $query
                 ->leftJoin('Article.category', 'c')
-                ->where('c.id = :category')
+                ->andWhere('c.id = :category')
                 ->setParameter("category", $category);
         }
     
@@ -75,6 +78,8 @@ class ShopController extends BaseController {
         ->setFirstResult(100 * (1 - 1)) // Offset
         ->setMaxResults(100); // Limit
     
+      
+        echo count($paginator);
       
         // get categories
         $categories = $this->entityManager->getRepository("App\Models\Category")->findAll();

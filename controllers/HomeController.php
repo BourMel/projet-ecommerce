@@ -22,7 +22,7 @@ class HomeController extends BaseController {
                             ->createQueryBuilder('articles');
     }
     
-    public function index() {
+    public function index($request, $response, $arg) {
         // set layout variables
         parent::index($request, $response, $args);
 
