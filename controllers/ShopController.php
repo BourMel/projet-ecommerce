@@ -31,9 +31,7 @@ class ShopController extends BaseController {
     
         // get filters    
         $params = $request->getParams();
-
-    var_dump($params);
-
+        
         $search = $params["search"]; 
         $price = $params["price"];
         $category = $params["plant"];

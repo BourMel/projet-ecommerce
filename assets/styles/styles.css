@@ -421,6 +421,27 @@ form .invalid {
     margin-bottom: 0;
 }
 
+/* paginator */
+.shop .paginator {
+    margin: 10px auto 0 auto;
+    display: block;
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    font-size: 2em;
+    /*font-weight: 800;*/
+}
+
+.shop .paginator a {
+    color: #339966;
+    margin-right: 5px;
+}
+
+.shop .paginator span {
+    margin-right: 5px;
+    /*font-weight: 800;*/
+}
+
+
 /****************/
 /**PRODUCT VIEW**/
 /****************/
