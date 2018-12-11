@@ -40,3 +40,9 @@ Toute autre URL mène à la page 404.
 
 Toutes les pages sont interconnectées par des liens présents sur le site, à l'exception de la page "connexion".
 En effet, le lien menant au compte client ne sera pas accessible par un utilisateur déconnecté, donc il sera remplacé par celui de connexion.
+
+##  Sécurité (injections SQL)
+
+D'après la documentation, parmi les méthodes de Doctrine, seul le `QueryBuilder` n'est pas sécurisé vis-à-vis des entrées utilisateur.
+
+Source : https://www.doctrine-project.org/projects/doctrine-orm/en/latest/reference/security.html#user-input-and-doctrine-orm

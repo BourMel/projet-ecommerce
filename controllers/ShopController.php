@@ -43,7 +43,7 @@ class ShopController extends BaseController {
                 ->setParameter("max", $max);
         }
         
-        // filter by keywords (not working)
+        // filter by keywords
         if(!empty($search)) {
             $query = $query
                 ->andWhere('Article.name LIKE :search')
