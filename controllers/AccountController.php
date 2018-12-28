@@ -72,7 +72,8 @@ class AccountController extends BaseController {
         
         // validate params (check email)
         if(!filter_var($request->getParams()["email"], FILTER_VALIDATE_EMAIL)) {
-            return;
+            $url = $this->container->router->pathFor('account', [], ['error' => "Ce n'est pas une adresse email valide !"]);
+            return $response->withStatus(302)->withHeader('Location', $url);
         }
         
         // now we can edit the USER informations

@@ -22,7 +22,7 @@ class ConnectionController extends BaseController {
     }
     
     /**
-     * Login a user
+     * Login user
      */
     public function login($request, $response, $args) {
         $params = $request->getParams();
@@ -106,7 +106,7 @@ class ConnectionController extends BaseController {
     }
     
     /**
-     * Logout the user
+     * Logout user
      */
     public function logout($request, $response, $args) {
         unset($_SESSION['user']);

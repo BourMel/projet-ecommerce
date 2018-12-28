@@ -356,6 +356,10 @@ form .invalid {
     margin-left: 40%; /*fix*/
 }
 
+.cart .empty {
+    margin: 5vh 0;
+}
+
 /********/
 /**SHOP**/
 /********/
