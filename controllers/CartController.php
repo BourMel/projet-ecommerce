@@ -42,9 +42,6 @@ class CartController extends BaseController {
      * Allow the user to create an order (buy its cart content) 
      */
     public function buy($request, $response, $args) {
-        // set layout variables
-        parent::index($request, $response, $args);
-        
         $order = new Order;
         
         $client = $this->logged_user->getClient();
