@@ -4,6 +4,13 @@ Réalisation d'un site e-commerce en PHP et JavaScript.
 
 ![Capture de la page catalogue](./readme.jpg)
 
+## Installation
+
+Pour lancer le projet, télécharger les dépendances à l'aide de `composer install`.
+La base de données doit être configurée dans `config/settings.php`.
+Il est possible de la construire en important le fichier `database/ephedra_save.sql`, ou
+bien d'utiliser Doctrine et de lancer `vendor/bin/doctrine orm:schema-tool:create`.
+
 ## Technologies
 
 Le front-end est réalisé en utilisant Bootstrap, ainsi que des templates Twig.
